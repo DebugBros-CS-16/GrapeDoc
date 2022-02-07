@@ -1,0 +1,83 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: const MyHomePage(title: 'GrapeDoc'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 80.0,
+            ),
+            Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 80.0,
+                  color: Colors.purple,
+                  padding: const EdgeInsets.all(20.0),
+                  child: const Text(
+                    "GrapeDoc",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 35.0,
+                        color: Colors.white
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 70.0,
+                ),
+                Image.asset("assets/images/grapedoclogo.png"),
+                const SizedBox(
+                  height: 100.0,
+                ),
+                const Text(
+                  'Instant disease detection and \n farming assistant',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
