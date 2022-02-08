@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'BlogScreen.dart';
@@ -13,74 +14,78 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  int _currentIndex = 0;
-
-  void _tabNavigator(index){
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
-  static const List<Widget> _pages = <Widget>[
-    CameraScreen(),
-    HomeScreen(),
-    ChatScreen(),
-    BlogScreen()
-  ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const IconButton(
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation menu',
-          onPressed: null,
-        ),
-        title: const Text(
-          'Grape Doc',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 28.0
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          Container(
+            margin: const EdgeInsets.all(10.0),
+            height: 250.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(right: 10.0),
+                  width: 200.0,
+                  color: Colors.purple,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(right: 10.0),
+                  width: 200.0,
+                  color: Colors.green,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(right: 10.0),
+                  width: 200.0,
+                  color: Colors.pink,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(right: 10.0),
+                  width: 200.0,
+                  color: Colors.purple,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(right: 10.0),
+                  width: 200.0,
+                  color: Colors.green,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.pink,
+                ),
+              ],
+            ),
           ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.purple,
-      ),
-      body: _pages[
-      _currentIndex
-      ],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.green,
-        selectedLabelStyle: const TextStyle(color: Colors.green),
-        showSelectedLabels: false,
-        unselectedItemColor: Colors.white,
-        unselectedLabelStyle: const TextStyle(color: Colors.white),
-        showUnselectedLabels: false,
-        backgroundColor: Colors.black,
-        items: const <BottomNavigationBarItem> [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera_alt_rounded),
-            label: 'Camera',
+          Container(
+            height: 200.0,
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            color: Colors.blue,
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home'
+          Container(
+            height: 200.0,
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            color: Colors.red,
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
-              label: 'Chat'
+          Container(
+            height: 200.0,
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            color: Colors.green,
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.web),
-              label: 'Blog'
+          Container(
+            height: 200.0,
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            color: Colors.amber,
           ),
         ],
-        onTap: (index){
-          _tabNavigator(index);
-        },
       ),
     );
   }

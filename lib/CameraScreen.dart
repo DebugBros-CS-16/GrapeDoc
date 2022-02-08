@@ -9,6 +9,6 @@ class CameraScreen extends StatefulWidget {
 class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Text('Camera');
+    return const Center(child: Text('Camera'));;
   }
 }

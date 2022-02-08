@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
+import 'NavBar.dart';
 import 'SigninScreen.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const HomeScreen(),
+      home: const NavBar(),
     );
   }
 }

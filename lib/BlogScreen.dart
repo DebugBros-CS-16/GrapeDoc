@@ -10,6 +10,6 @@ class BlogScreen extends StatefulWidget {
 class _BlogScreenState extends State<BlogScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Text('Blog');
+    return const Center(child: Text('Blog'));
   }
 }
