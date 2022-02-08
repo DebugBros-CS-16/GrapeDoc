@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'SigninScreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,28 +38,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: const IconButton(
+          icon: Icon(Icons.menu),
+          tooltip: 'Navigation menu',
+          onPressed: null,
+        ),
+        title: const Text('Grape Doc',
+          style: TextStyle(fontWeight: FontWeight.bold,
+              fontSize: 28.0),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.purple,
+      ),
+
       body: Center(
         child: Column(
           children: <Widget>[
-            const SizedBox(
-              height: 80.0,
-            ),
+            // const SizedBox(
+            //   height: 80.0,
+            // ),
             Column(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 80.0,
-                  color: Colors.purple,
-                  padding: const EdgeInsets.all(20.0),
-                  child: const Text(
-                    "GrapeDoc",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 35.0,
-                        color: Colors.white
-                    ),
-                  ),
-                ),
                 const SizedBox(
                   height: 70.0,
                 ),
