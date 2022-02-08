@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'ChatScreen.dart';
+import 'HomeScreen.dart';
 import 'SigninScreen.dart';
 
 void main() {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const MyHomePage(title: 'GrapeDoc'),
+      home: const HomeScreen(),
     );
   }
 }
