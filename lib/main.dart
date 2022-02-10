@@ -1,12 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
 import 'NavBar.dart';
 import 'SigninScreen.dart';
 
-void main() {
+
+List<CameraDescription> cameras = [];
+
+Future<void> main() async{
+  try{
+    WidgetsFlutterBinding.ensureInitialized();
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    print('Error in fetching the cameras: $e');
+  }
   runApp(const MyApp());
 }
 
