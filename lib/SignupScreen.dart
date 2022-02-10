@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class SignInScreen extends StatelessWidget {
         ),
         title: const Text('Grape Doc',
           style: TextStyle(fontWeight: FontWeight.bold,
-          fontSize: 28.0),
+              fontSize: 28.0),
         ),
         centerTitle: true,
         backgroundColor: Colors.purple,
@@ -24,15 +24,23 @@ class SignInScreen extends StatelessWidget {
         child: Column(
           children:  <Widget>[
             const SizedBox(
-              height: 40.0,
+              height: 20.0,
             ),
             Column(
               children: [
                 Image.asset("assets/images/grapedoclogo1.png"),
-                const SizedBox(
-                  height: 50.0,
+                // const SizedBox(
+                //   height: 25.0,
+                // ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      hintText: 'Enter a search term',
+                    ),
+                  ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextFormField(
@@ -54,15 +62,15 @@ class SignInScreen extends StatelessWidget {
                 ),
 
                 const SizedBox(
-                  height: 50.0,
+                  height: 25.0,
                 ),
 
                 TextButton(
                     child: const Text(
-                        "Sign in",
+                        "Sign up",
                         style: TextStyle(fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black)
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black)
                     ),
                     style: ButtonStyle(
                         padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(15)),
@@ -82,13 +90,14 @@ class SignInScreen extends StatelessWidget {
                 ),
 
                 const Text(
-                  'Dont have an account? Sign in' ,
-                  textAlign: TextAlign.center),
+                    'Dont have an account? Sign up' ,
+                    textAlign: TextAlign.center),
               ],
             )
           ],
         ),
       ),
     );
+
   }
 }
