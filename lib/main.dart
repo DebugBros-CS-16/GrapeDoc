@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'SigninScreen.dart';
+import 'SignupScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const MyHomePage(title: 'GrapeDoc'),
+      home: const SignUpScreen(),
     );
   }
 }
@@ -55,9 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            // const SizedBox(
-            //   height: 80.0,
-            // ),
+            const SizedBox(
+              height: 20.0,
+            ),
             Column(
               children: [
                 const SizedBox(

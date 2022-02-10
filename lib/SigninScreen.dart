@@ -32,15 +32,17 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(
                   height: 50.0,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextField(
-                    decoration: InputDecoration(
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
-                      hintText: 'Enter a search term',
+                      labelText: 'Enter your username',
                     ),
                   ),
                 ),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextFormField(
@@ -86,9 +88,7 @@ class SignInScreen extends StatelessWidget {
             )
           ],
         ),
-
       ),
-
     );
   }
 }
