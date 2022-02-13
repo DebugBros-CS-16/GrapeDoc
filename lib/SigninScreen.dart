@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:grape_doc/HomeScreen.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+import 'NavBar.dart';
 
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool hide = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,78 +23,122 @@ class SignInScreen extends StatelessWidget {
         ),
         title: const Text('Grape Doc',
           style: TextStyle(fontWeight: FontWeight.bold,
-          fontSize: 28.0),
+              fontSize: 28.0),
         ),
         centerTitle: true,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.deepPurple,
       ),
-
-      body:  Center(
-        child: Column(
-          children:  <Widget>[
-            const SizedBox(
-              height: 40.0,
+      backgroundColor: Colors.deepPurple,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 400),
+              width: double.infinity,
+              height: 450,
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(40),
+                      topLeft: Radius.circular(40))),
             ),
-            Column(
-              children: [
-                Image.asset("assets/images/grapedoclogo1.png"),
-                const SizedBox(
-                  height: 50.0,
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Enter your username',
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              margin: EdgeInsets.only(top: 200, left: 50, right: 50),
+              width: double.infinity,
+              height: 350,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.black38, spreadRadius: 0.1, blurRadius: 5)
+                  ]),
+              child: Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                        hintText: "Email",
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    obscureText: hide,
+                    decoration: InputDecoration(
+                        hintText: "Password",
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              hide = !hide;
+                            });
+                          },
+                          icon: hide
+                              ? Icon(Icons.visibility_off)
+                              : const Icon(Icons.visibility),
+                        ),
+                        prefixIcon: Icon(Icons.lock),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text("Forget?"),
                     ),
                   ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Enter your username',
+                  ElevatedButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor: Colors.deepPurple,
+                          padding: const EdgeInsets.symmetric(horizontal: 80)),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const NavBar()));
+                      },
+                      child: const Text("Login")),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text("Don't have an account"),
+                      // TextButton(
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //           context,
+                      //           MaterialPageRoute(
+                      //               builder: (context) => RegisterScreen()));
+                      //     },
+                      //     child: Text("Register?"))
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Positioned(
+                top: 80,
+                left: 55,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "Welcome",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40),
                     ),
-                  ),
-                ),
-
-                const SizedBox(
-                  height: 50.0,
-                ),
-
-                TextButton(
-                    child: const Text(
-                        "Sign in",
-                        style: TextStyle(fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black)
-                    ),
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(15)),
-                        foregroundColor: MaterialStateProperty.all<Color>(Colors.green),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                                side: const BorderSide(color: Colors.green,)
-                            )
-                        )
-                    ),
-                    onPressed: () => null
-                ),
-
-                const SizedBox(
-                  height: 30.0,
-                ),
-
-                const Text(
-                  'Dont have an account? Sign in' ,
-                  textAlign: TextAlign.center),
-              ],
-            )
+                    Text(
+                      "Login access to your account",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 17),
+                    )
+                  ],
+                )),
           ],
         ),
       ),
