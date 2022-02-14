@@ -30,6 +30,8 @@ dependencies:
   flutter:
     sdk: flutter
   path_provider: ^2.0.8
+  video_player: ^2.2.5
+  permission_handler: ^8.3.0
   image_picker: ^0.8.4+7
   camera: ^0.9.4+11
   flutter_signin_button: ^2.0.0
