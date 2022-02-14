@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter/services.dart';
 
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const LoginScreen(),
+      home: const MyHomePage(title: 'Hello'),
     );
   }
 }
@@ -48,6 +51,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(
+      const Duration(seconds: 3),
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
