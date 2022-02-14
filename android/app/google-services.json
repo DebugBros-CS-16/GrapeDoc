@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "355500791668",
-    "project_id": "grapedoc-57d61",
-    "storage_bucket": "grapedoc-57d61.appspot.com"
+    "project_number": "34096334430",
+    "project_id": "grapedoc-bbb81",
+    "storage_bucket": "grapedoc-bbb81.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:355500791668:android:6fcc8de420f25b7594fe21",
+        "mobilesdk_app_id": "1:34096334430:android:75c776fdfaa2caa7eb96cf",
         "android_client_info": {
           "package_name": "com.grape_doc"
         }
       },
       "oauth_client": [
         {
-          "client_id": "355500791668-j2vfu2e6i0b8590v49pongf53lgnd8pt.apps.googleusercontent.com",
+          "client_id": "34096334430-bp9lhpcbh30bs4rrj5hm9p1gjfi1bhdm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grape_doc",
+            "certificate_hash": "3792eab523781363f1f8bd8b846c559da23e6736"
+          }
+        },
+        {
+          "client_id": "34096334430-b65hspan1s3s748lu9743gvpmg1pnh3k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBBCPACdA3gMbA5seOiSJcGFNKh63Y5peo"
+          "current_key": "AIzaSyAgWcD2mK0duf8qQ0W0xzmoRjvuzyacypU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "355500791668-j2vfu2e6i0b8590v49pongf53lgnd8pt.apps.googleusercontent.com",
+              "client_id": "34096334430-b65hspan1s3s748lu9743gvpmg1pnh3k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

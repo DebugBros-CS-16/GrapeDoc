@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grape_doc/BlogScreen.dart';
-import 'package:grape_doc/CameraScreen.dart';
-import 'package:grape_doc/HomeScreen.dart';
+import 'package:grape_doc/screens/BlogScreen.dart';
+import 'package:grape_doc/screens/CameraScreen.dart';
+import 'HomeScreen.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);

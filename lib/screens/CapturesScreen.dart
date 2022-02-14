@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:grape_doc/PreviewScreen.dart';
+import 'PreviewScreen.dart';
 
 class CapturesScreen extends StatelessWidget {
   final List<File> imageFileList;
