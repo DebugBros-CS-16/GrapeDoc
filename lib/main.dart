@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const RegisterScreen(),
+      home: const LoginScreen(),
     );
   }
 }

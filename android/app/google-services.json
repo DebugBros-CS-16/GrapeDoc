@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "355500791668",
+    "project_id": "grapedoc-57d61",
+    "storage_bucket": "grapedoc-57d61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355500791668:android:6fcc8de420f25b7594fe21",
+        "android_client_info": {
+          "package_name": "com.grape_doc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355500791668-j2vfu2e6i0b8590v49pongf53lgnd8pt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBCPACdA3gMbA5seOiSJcGFNKh63Y5peo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355500791668-j2vfu2e6i0b8590v49pongf53lgnd8pt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
