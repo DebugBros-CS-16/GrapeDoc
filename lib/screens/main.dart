@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/services.dart';
+import 'package:grape_doc/GoogleSignInProvider.dart';
+import 'package:provider/provider.dart';
 
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
@@ -32,12 +35,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
+    return ChangeNotifierProvider(
+      create: (BuildContext context) => GoogleSignInProvider(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+        ),
+        home: const MyHomePage(title: 'Hello'),
       ),
-      home: const MyHomePage(title: 'Hello'),
     );
   }
 }
@@ -61,7 +67,21 @@ class _MyHomePageState extends State<MyHomePage> {
       const Duration(seconds: 3),
         () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
+          MaterialPageRoute(builder: (context) => StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator(),);
+              } else if (snapshot.hasData) {
+                return NavBar();
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Something Went Wrong!'),);
+              } else {
+                return RegisterScreen();
+              }
+            },
+          ),
+          ),
         )
     );
   }

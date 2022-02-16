@@ -5,7 +5,7 @@ import 'package:grape_doc/GoogleSignInProvider.dart';
 import 'package:provider/provider.dart';
 import 'HomeScreen.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'NavBar.dart';
 import 'SignupScreen.dart';
 
@@ -19,6 +19,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
   bool hide = true;
+  bool isLoggedIn = false;
+  Map userObj = {};
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -104,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 padding: const EdgeInsets.symmetric(horizontal: 80)),
                             onPressed: () async{
                               Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => const NavBar()));
+                                  MaterialPageRoute(builder: (context) => NavBar()));
                             },
                             child: const Text("Login")),
                         Row(
@@ -164,7 +167,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         SignInButton(
                           Buttons.Facebook,
-                          onPressed: () {},
+                          onPressed: () async{
+                            FacebookAuth.instance.login(
+                              permissions: ["public_profile", "email"]
+                            ).then((value) {
+                              FacebookAuth.instance.getUserData().then((userData){
+                                setState(() {
+                                  isLoggedIn = true;
+                                  userObj = userData;
+                                });
+                              });
+                            });
+                          },
                         ),
 
                         // SignInButtonBuilder(

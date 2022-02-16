@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GrapeDoc</string>
+    <string name="facebook_app_id">362447418792697</string>
+    <string name="fb_login_protocol_scheme">fb362447418792697</string>
+    <string name="facebook_client_token">1e19f4d066e42555a007d0aa17ed327b</string>
+</resources>
