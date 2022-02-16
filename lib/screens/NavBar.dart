@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'BlogScreen.dart';
 import 'CameraScreen.dart';
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
+import 'SignupScreen.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -31,8 +34,7 @@ class _NavBarState extends State<NavBar> {
 
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         leading: const IconButton(
           icon: Icon(Icons.menu),
@@ -49,9 +51,20 @@ class _NavBarState extends State<NavBar> {
         centerTitle: true,
         backgroundColor: Colors.purple,
       ),
-      body: _pages[
-      _currentIndex
-      ],
+      body: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return Center(child: CircularProgressIndicator(),);
+          }else if(snapshot.hasData){
+            return _pages[_currentIndex];
+          } else if (snapshot.hasError){
+            return Center(child: Text('Something Went Wrong!'),);
+          }else{
+            return RegisterScreen();
+          }
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
@@ -83,5 +96,4 @@ class _NavBarState extends State<NavBar> {
         },
       ),
     );
-  }
 }
