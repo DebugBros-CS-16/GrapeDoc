@@ -23,24 +23,49 @@ class _NavBarState extends State<NavBar> {
 
   int _currentIndex = 1;
 
+
   void _tabNavigator(index) {
     setState(() {
       _currentIndex = index;
     });
   }
 
-  static List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     CameraScreen(),
-    HomeScreen(),
-    ChatScreen(),
-    BlogScreen()
+    const HomeScreen(),
+    const ChatScreen(),
+    const BlogScreen()
   ];
 
 
+
+  Text text = Text(
+    "Welcome",
+    style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 28.0
+    ),
+  );
+
+
+  _NavBarState() {
+    Future.delayed(
+        const Duration(seconds: 3),
+            () =>
+            setState(() {
+              text =const Text(
+                'Grape Doc',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28.0
+                ),
+              );
+            })
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    final user = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
       appBar: AppBar(
@@ -49,13 +74,7 @@ class _NavBarState extends State<NavBar> {
           tooltip: 'Navigation menu',
           onPressed: null,
         ),
-        title: const Text(
-          'Grape Doc',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 28.0
-          ),
-        ),
+        title: text,
         centerTitle: true,
         backgroundColor: Colors.purple,
         actions: [
