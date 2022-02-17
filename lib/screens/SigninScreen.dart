@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:grape_doc/GoogleSignInProvider.dart';
@@ -19,8 +20,19 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
   bool hide = true;
-  bool isLoggedIn = false;
-  Map userObj = {};
+
+  @override
+  void initState() {
+    var provider =  Provider.of<GoogleSignInProvider>(context, listen: false);
+    provider.currentUser.listen((fbUser) {
+      if (fbUser != null){
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => NavBar())
+        );
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -167,17 +179,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         SignInButton(
                           Buttons.Facebook,
-                          onPressed: () async{
-                            FacebookAuth.instance.login(
-                              permissions: ["public_profile", "email"]
-                            ).then((value) {
-                              FacebookAuth.instance.getUserData().then((userData){
-                                setState(() {
-                                  isLoggedIn = true;
-                                  userObj = userData;
-                                });
-                              });
-                            });
+                          onPressed: () {
+                            final provider =  Provider.of<GoogleSignInProvider>(context, listen: false);
+                            provider.facebookLogin();
                           },
                         ),
 

@@ -65,7 +65,7 @@ class _NavBarState extends State<NavBar> {
                 Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.logout();
               },
-              icon: const Icon(Icons.logout)
+              icon: const Icon(Icons.power_settings_new)
           ),
         ],
       ),

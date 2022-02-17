@@ -9,11 +9,11 @@ import 'package:flutter/services.dart';
 import 'package:grape_doc/GoogleSignInProvider.dart';
 import 'package:provider/provider.dart';
 
-import 'ChatScreen.dart';
-import 'HomeScreen.dart';
-import 'NavBar.dart';
-import 'SigninScreen.dart';
-import 'SignupScreen.dart';
+import 'screens/ChatScreen.dart';
+import 'screens/HomeScreen.dart';
+import 'screens/NavBar.dart';
+import 'screens/SigninScreen.dart';
+import 'screens/SignupScreen.dart';
 
 
 List<CameraDescription> cameras = [];
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               } else if (snapshot.hasError) {
                 return Center(child: Text('Something Went Wrong!'),);
               } else {
-                return RegisterScreen();
+                return LoginScreen();
               }
             },
           ),

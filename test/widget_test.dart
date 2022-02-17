@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:grape_doc/screens/main.dart';
+import 'package:grape_doc/main.dart';
 
 
 void main() {
