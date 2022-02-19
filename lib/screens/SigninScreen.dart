@@ -48,9 +48,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 28.0),
               ),
               centerTitle: true,
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.purple,
             ),
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Colors.purple,
             body: SingleChildScrollView(
               child: Stack(
                 children: [
@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         ElevatedButton(
                             style: TextButton.styleFrom(
-                                backgroundColor: Colors.deepPurple,
+                                backgroundColor: Colors.purple,
                                 padding: const EdgeInsets.symmetric(horizontal: 80)),
                             onPressed: () async{
                               Navigator.push(context,

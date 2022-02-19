@@ -27,9 +27,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               fontSize: 28.0),
         ),
         centerTitle: true,
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.purple,
       ),
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Colors.purple,
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -113,7 +113,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   ElevatedButton(
                       style: TextButton.styleFrom(
-                          backgroundColor: Colors.deepPurple,
+                          backgroundColor: Colors.purple,
                           padding: const EdgeInsets.symmetric(horizontal: 80)),
                       onPressed: () {
                         if (password.text != cpassword.text) {
