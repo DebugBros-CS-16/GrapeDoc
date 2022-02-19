@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grape_doc/Services/crud.dart';
 import 'package:grape_doc/screens/AddBlog.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class BlogScreen extends StatefulWidget {
   const BlogScreen({Key? key}) : super(key: key);
@@ -14,26 +15,27 @@ class BlogScreen extends StatefulWidget {
 class _BlogScreenState extends State<BlogScreen> {
   CrudMethods crudMethods = CrudMethods();
 
-  QuerySnapshot? blogsSnapshot;
+  Stream? blogsStream;
 
   Widget BlogList(){
     return Container(
-      child: blogsSnapshot != null ? Column(
+      child: blogsStream != null ? Column(
         children: [
-          ListView.builder(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 10.0
-            ),
-            itemCount: blogsSnapshot?.docs.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index){
-              return BlogsTile(
-                title: blogsSnapshot?.docs[index].data['title'],
-                desc: blogsSnapshot?.docs[index].data['desc'],
-                imgUrl: blogsSnapshot?.docs[index].data['imgUrl'],
-              );
-            }
-            )
+          StreamBuilder<dynamic>(
+            stream: blogsStream,
+            builder: (context, snapshot){
+              return ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  itemCount: snapshot.data.docs.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index){
+                    return BlogsTile(
+                      title: snapshot.data.docs[index]['title'],
+                      desc: snapshot.data.docs[index]['desc'],
+                      imgUrl: snapshot.data.docs[index]['imgUrl'],
+                    );
+                  });
+            })
         ],
       ): Container(
         alignment: Alignment.center,
@@ -44,20 +46,16 @@ class _BlogScreenState extends State<BlogScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
     crudMethods.getData().then((result) {
-      blogsSnapshot = result;
+      blogsStream = result;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-
-      ),
+      body: BlogList(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: (){
@@ -86,8 +84,8 @@ class BlogsTile extends StatelessWidget {
         children: [
           ClipRRect(
               borderRadius: BorderRadius.circular(5),
-              child: Image.network(
-                imgUrl,
+              child: CachedNetworkImage(
+                imageUrl: imgUrl,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.cover,
               )

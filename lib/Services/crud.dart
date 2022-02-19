@@ -15,6 +15,6 @@ class CrudMethods{
   }
 
   Future getData() async {
-    return await firestore.collection('blogs').get();
+    return await firestore.collection('blogs').snapshots();
   }
 }
