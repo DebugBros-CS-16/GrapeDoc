@@ -39,7 +39,7 @@ class _NavBarState extends State<NavBar> {
 
 
 
-  Text text = Text(
+  Text text = const Text(
     "Welcome",
     style: TextStyle(
         fontWeight: FontWeight.bold,
