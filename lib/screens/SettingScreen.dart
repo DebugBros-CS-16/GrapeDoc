@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grape_doc/GoogleSignInProvider.dart';
+import 'package:grape_doc/widgets/Navigation_drawer_widget.dart';
 import 'package:provider/provider.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -15,13 +16,15 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: NavigationDrawerWidget(),
       appBar: AppBar(
-        leading: const IconButton(
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation menu',
-          onPressed: null,
+        title: const Text(
+          'Settings',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 28.0
+          ),
         ),
-        // title: text,
         centerTitle: true,
         backgroundColor: Colors.purple,
         actions: [

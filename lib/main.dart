@@ -43,8 +43,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
-        // home: const MyHomePage(title: 'Hello'),
-        home: const SettingScreen(),
+        home: const MyHomePage(title: 'Hello'),
+        //home: const SettingScreen(),
       ),
     );
   }
