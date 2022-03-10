@@ -89,7 +89,6 @@ class _AddBlogState extends State<AddBlog> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         title: const Text(
           'Add new blog',
           style: TextStyle(
@@ -142,7 +141,7 @@ class _AddBlogState extends State<AddBlog> {
                   color: Colors.black12,
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.add_a_photo,
                   color: Colors.black45,
                   size: 30.0,

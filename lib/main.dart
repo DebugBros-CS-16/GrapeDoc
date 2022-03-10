@@ -6,8 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/services.dart';
-import 'package:grape_doc/GoogleSignInProvider.dart';
+import 'package:grape_doc/SignInProvider.dart';
 import 'package:grape_doc/screens/SettingScreen.dart';
+import 'package:grape_doc/screens/testblog.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/ChatScreen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.purple,
         ),
         home: const MyHomePage(title: 'Hello'),
-        //home: const SettingScreen(),
+        //home: TestBlog2(),
       ),
     );
   }

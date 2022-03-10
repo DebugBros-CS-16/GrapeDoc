@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:grape_doc/GoogleSignInProvider.dart';
+import 'package:grape_doc/SignInProvider.dart';
 import 'package:grape_doc/widgets/Navigation_drawer_widget.dart';
 import 'package:provider/provider.dart';
 

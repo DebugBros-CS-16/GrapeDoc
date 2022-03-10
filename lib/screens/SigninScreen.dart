@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:grape_doc/GoogleSignInProvider.dart';
+import 'package:grape_doc/SignInProvider.dart';
 import 'package:provider/provider.dart';
 import 'HomeScreen.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
