@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grape_doc/SignInProvider.dart';
 import 'package:grape_doc/screens/testCamera.dart';
+import 'package:grape_doc/screens/testImagePicker.dart';
 import 'package:grape_doc/screens/testML.dart';
 import 'package:grape_doc/widgets/Navigation_drawer_widget.dart';
 import 'package:provider/provider.dart';
@@ -35,8 +36,9 @@ class _NavBarState extends State<NavBar> {
 
   static final List<Widget> _pages = <Widget>[
     //CameraScreen(),
-    TestCamera(),
+    //TestCamera(),
     //TestML(),
+    TestImagePicker(),
     const HomeScreen(),
     const ChatScreen(),
     const BlogScreen()
