@@ -50,8 +50,19 @@ class _TestImagePickerState extends State<TestImagePicker> {
     _classifier = ClassifierQuant();
   }
 
-  Future getImage() async {
+  Future getImageFromGallery() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = File(pickedFile!.path);
+      _imageWidget = Image.file(_image!);
+
+      _predict();
+    });
+  }
+
+  Future getImageFromCamera() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
 
     setState(() {
       _image = File(pickedFile!.path);
@@ -105,10 +116,23 @@ class _TestImagePickerState extends State<TestImagePicker> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
-        tooltip: 'Pick Image',
-        child: Icon(Icons.add_a_photo),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: getImageFromCamera,
+            tooltip: 'Pick Image From Camera',
+            child: Icon(Icons.add_a_photo),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          FloatingActionButton(
+            onPressed: getImageFromGallery,
+            tooltip: 'Pick Image From Gallery',
+            child: Icon(Icons.add_photo_alternate_outlined),
+          ),
+        ],
       ),
     );
   }
