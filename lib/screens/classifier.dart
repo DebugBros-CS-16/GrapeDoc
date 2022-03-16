@@ -48,7 +48,7 @@ abstract class Classifier {
   Future<void> loadModel() async {
     try {
       interpreter =
-      await Interpreter.fromAsset(modelName, options: _interpreterOptions);
+          await Interpreter.fromAsset(modelName, options: _interpreterOptions);
       print('Interpreter Created Successfully');
 
       _inputShape = interpreter.getInputTensor(0).shape;
@@ -78,7 +78,7 @@ abstract class Classifier {
     return ImageProcessorBuilder()
         .add(ResizeWithCropOrPadOp(cropSize, cropSize))
         .add(ResizeOp(
-        _inputShape[1], _inputShape[2], ResizeMethod.NEAREST_NEIGHBOUR))
+            _inputShape[1], _inputShape[2], ResizeMethod.NEAREST_NEIGHBOUR))
         .add(preProcessNormalizeOp)
         .build()
         .process(_inputImage);
@@ -100,7 +100,7 @@ abstract class Classifier {
     print('Time to run inference: $run ms');
 
     Map<String, double> labeledProb = TensorLabel.fromList(
-        labels, _probabilityProcessor.process(_outputBuffer))
+            labels, _probabilityProcessor.process(_outputBuffer))
         .getMapWithFloatValue();
     final pred = getTopProbability(labeledProb);
 

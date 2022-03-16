@@ -15,7 +15,7 @@ import 'HomeScreen.dart';
 import 'SignupScreen.dart';
 
 class NavBar extends StatefulWidget {
-   NavBar({Key? key}) : super(key: key);
+  NavBar({Key? key}) : super(key: key);
 
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
@@ -24,9 +24,7 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-
   int _currentIndex = 1;
-
 
   void _tabNavigator(index) {
     setState(() {
@@ -44,36 +42,24 @@ class _NavBarState extends State<NavBar> {
     const BlogScreen()
   ];
 
-
-
   Text text = const Text(
     "Welcome",
-    style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 28.0
-    ),
+    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
   );
-
 
   _NavBarState() {
     Future.delayed(
         const Duration(seconds: 3),
-            () =>
-            setState(() {
-              text =const Text(
+        () => setState(() {
+              text = const Text(
                 'Grape Doc',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 28.0
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
               );
-            })
-    );
+            }));
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       drawer: NavigationDrawerWidget(),
       appBar: AppBar(
@@ -87,18 +73,15 @@ class _NavBarState extends State<NavBar> {
         backgroundColor: Colors.purple,
         actions: [
           IconButton(
-              onPressed:(){
+              onPressed: () {
                 final provider =
-                Provider.of<GoogleSignInProvider>(context, listen: false);
+                    Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.logout();
               },
-              icon: const Icon(Icons.power_settings_new)
-          ),
+              icon: const Icon(Icons.power_settings_new)),
         ],
       ),
-      body: _pages[
-        _currentIndex
-      ],
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
@@ -112,18 +95,9 @@ class _NavBarState extends State<NavBar> {
             icon: Icon(Icons.camera_alt_rounded),
             label: 'Camera',
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
-              label: 'Chat'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.web),
-              label: 'Blog'
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
+          BottomNavigationBarItem(icon: Icon(Icons.web), label: 'Blog'),
         ],
         onTap: (index) {
           _tabNavigator(index);

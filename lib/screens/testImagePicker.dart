@@ -7,7 +7,6 @@ import 'classifier_quant.dart';
 import 'package:logger/logger.dart';
 import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
 
-
 // class MyApp extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
@@ -90,13 +89,13 @@ class _TestImagePickerState extends State<TestImagePicker> {
             child: _image == null
                 ? Text('No image selected.')
                 : Container(
-              constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height / 2),
-              decoration: BoxDecoration(
-                border: Border.all(),
-              ),
-              child: _imageWidget,
-            ),
+                    constraints: BoxConstraints(
+                        maxHeight: MediaQuery.of(context).size.height / 2),
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                    ),
+                    child: _imageWidget,
+                  ),
           ),
           SizedBox(
             height: 36,

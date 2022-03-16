@@ -20,22 +20,18 @@ class _SettingScreenState extends State<SettingScreen> {
       appBar: AppBar(
         title: const Text(
           'Settings',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 28.0
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
         ),
         centerTitle: true,
         backgroundColor: Colors.purple,
         actions: [
           IconButton(
-              onPressed:(){
+              onPressed: () {
                 final provider =
-                Provider.of<GoogleSignInProvider>(context, listen: false);
+                    Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.logout();
               },
-              icon: const Icon(Icons.power_settings_new)
-          ),
+              icon: const Icon(Icons.power_settings_new)),
         ],
       ),
       body: Container(

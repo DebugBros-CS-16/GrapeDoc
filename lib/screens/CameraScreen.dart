@@ -80,7 +80,7 @@ class _CameraScreenState extends State<CameraScreen>
 
     if (fileNames.isNotEmpty) {
       final recentFile =
-      fileNames.reduce((curr, next) => curr[0] > next[0] ? curr : next);
+          fileNames.reduce((curr, next) => curr[0] > next[0] ? curr : next);
       String recentFileName = recentFile[1];
       if (recentFileName.contains('.mp4')) {
         _videoFile = File('${directory.path}/$recentFileName');
@@ -297,570 +297,566 @@ class _CameraScreenState extends State<CameraScreen>
         backgroundColor: Colors.black,
         body: _isCameraPermissionGranted
             ? _isCameraInitialized
-            ? Column(
-          children: [
-            AspectRatio(
-              aspectRatio: 1 / controller!.value.aspectRatio,
-              child: Stack(
-                children: [
-                  CameraPreview(
-                    controller!,
-                    child: LayoutBuilder(builder:
-                        (BuildContext context,
-                        BoxConstraints constraints) {
-                      return GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        onTapDown: (details) =>
-                            onViewFinderTap(details, constraints),
-                      );
-                    }),
-                  ),
-                  // TODO: Uncomment to preview the overlay
-                  // Center(
-                  //   child: Image.asset(
-                  //     'assets/camera_aim.png',
-                  //     color: Colors.greenAccent,
-                  //     width: 150,
-                  //     height: 150,
-                  //   ),
-                  // ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                      16.0,
-                      8.0,
-                      16.0,
-                      8.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.black87,
-                              borderRadius:
-                              BorderRadius.circular(10.0),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8.0,
-                                right: 8.0,
-                              ),
-                              child: DropdownButton<ResolutionPreset>(
-                                dropdownColor: Colors.black87,
-                                underline: Container(),
-                                value: currentResolutionPreset,
-                                items: [
-                                  for (ResolutionPreset preset
-                                  in resolutionPresets)
-                                    DropdownMenuItem(
-                                      child: Text(
-                                        preset
-                                            .toString()
-                                            .split('.')[1]
-                                            .toUpperCase(),
-                                        style: TextStyle(
-                                            color: Colors.white),
-                                      ),
-                                      value: preset,
-                                    )
-                                ],
-                                onChanged: (value) {
-                                  setState(() {
-                                    currentResolutionPreset = value!;
-                                    _isCameraInitialized = false;
-                                  });
-                                  onNewCameraSelected(
-                                      controller!.description);
-                                },
-                                hint: Text("Select item"),
-                              ),
-                            ),
-                          ),
-                        ),
-                        // Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              right: 8.0, top: 16.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                              BorderRadius.circular(10.0),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                _currentExposureOffset
-                                    .toStringAsFixed(1) +
-                                    'x',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: RotatedBox(
-                            quarterTurns: 3,
-                            child: Container(
-                              height: 30,
-                              child: Slider(
-                                value: _currentExposureOffset,
-                                min: _minAvailableExposureOffset,
-                                max: _maxAvailableExposureOffset,
-                                activeColor: Colors.white,
-                                inactiveColor: Colors.white30,
-                                onChanged: (value) async {
-                                  setState(() {
-                                    _currentExposureOffset = value;
-                                  });
-                                  await controller!
-                                      .setExposureOffset(value);
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                        Row(
+                ? Column(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 1 / controller!.value.aspectRatio,
+                        child: Stack(
                           children: [
-                            Expanded(
-                              child: Slider(
-                                value: _currentZoomLevel,
-                                min: _minAvailableZoom,
-                                max: _maxAvailableZoom,
-                                activeColor: Colors.white,
-                                inactiveColor: Colors.white30,
-                                onChanged: (value) async {
-                                  setState(() {
-                                    _currentZoomLevel = value;
-                                  });
-                                  await controller!
-                                      .setZoomLevel(value);
-                                },
-                              ),
+                            CameraPreview(
+                              controller!,
+                              child: LayoutBuilder(builder:
+                                  (BuildContext context,
+                                      BoxConstraints constraints) {
+                                return GestureDetector(
+                                  behavior: HitTestBehavior.opaque,
+                                  onTapDown: (details) =>
+                                      onViewFinderTap(details, constraints),
+                                );
+                              }),
                             ),
+                            // TODO: Uncomment to preview the overlay
+                            // Center(
+                            //   child: Image.asset(
+                            //     'assets/camera_aim.png',
+                            //     color: Colors.greenAccent,
+                            //     width: 150,
+                            //     height: 150,
+                            //   ),
+                            // ),
                             Padding(
-                              padding:
-                              const EdgeInsets.only(right: 8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.black87,
-                                  borderRadius:
-                                  BorderRadius.circular(10.0),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    _currentZoomLevel
-                                        .toStringAsFixed(1) +
-                                        'x',
-                                    style: TextStyle(
-                                        color: Colors.white),
+                              padding: const EdgeInsets.fromLTRB(
+                                16.0,
+                                8.0,
+                                16.0,
+                                8.0,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.black87,
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 8.0,
+                                          right: 8.0,
+                                        ),
+                                        child: DropdownButton<ResolutionPreset>(
+                                          dropdownColor: Colors.black87,
+                                          underline: Container(),
+                                          value: currentResolutionPreset,
+                                          items: [
+                                            for (ResolutionPreset preset
+                                                in resolutionPresets)
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  preset
+                                                      .toString()
+                                                      .split('.')[1]
+                                                      .toUpperCase(),
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                value: preset,
+                                              )
+                                          ],
+                                          onChanged: (value) {
+                                            setState(() {
+                                              currentResolutionPreset = value!;
+                                              _isCameraInitialized = false;
+                                            });
+                                            onNewCameraSelected(
+                                                controller!.description);
+                                          },
+                                          hint: Text("Select item"),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  // Spacer(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        right: 8.0, top: 16.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          _currentExposureOffset
+                                                  .toStringAsFixed(1) +
+                                              'x',
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: RotatedBox(
+                                      quarterTurns: 3,
+                                      child: Container(
+                                        height: 30,
+                                        child: Slider(
+                                          value: _currentExposureOffset,
+                                          min: _minAvailableExposureOffset,
+                                          max: _maxAvailableExposureOffset,
+                                          activeColor: Colors.white,
+                                          inactiveColor: Colors.white30,
+                                          onChanged: (value) async {
+                                            setState(() {
+                                              _currentExposureOffset = value;
+                                            });
+                                            await controller!
+                                                .setExposureOffset(value);
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Slider(
+                                          value: _currentZoomLevel,
+                                          min: _minAvailableZoom,
+                                          max: _maxAvailableZoom,
+                                          activeColor: Colors.white,
+                                          inactiveColor: Colors.white30,
+                                          onChanged: (value) async {
+                                            setState(() {
+                                              _currentZoomLevel = value;
+                                            });
+                                            await controller!
+                                                .setZoomLevel(value);
+                                          },
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 8.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.black87,
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                              _currentZoomLevel
+                                                      .toStringAsFixed(1) +
+                                                  'x',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
+                      ),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: Column(
+                            children: [
+                              // Padding(
+                              //   padding: const EdgeInsets.only(top: 8.0),
+                              //   child: Row(
+                              //     children: [
+                              //       Expanded(
+                              //         child: Padding(
+                              //           padding: const EdgeInsets.only(
+                              //             left: 8.0,
+                              //             right: 4.0,
+                              //           ),
+                              //           child: TextButton(
+                              //             onPressed: _isRecordingInProgress
+                              //                 ? null
+                              //                 : () {
+                              //               if (_isVideoCameraSelected) {
+                              //                 setState(() {
+                              //                   _isVideoCameraSelected =
+                              //                   false;
+                              //                 });
+                              //               }
+                              //             },
+                              //             style: TextButton.styleFrom(
+                              //               primary: _isVideoCameraSelected
+                              //                   ? Colors.black54
+                              //                   : Colors.black,
+                              //               backgroundColor:
+                              //               _isVideoCameraSelected
+                              //                   ? Colors.white30
+                              //                   : Colors.white,
+                              //             ),
+                              //             child: Text('IMAGE'),
+                              //           ),
+                              //         ),
+                              //       ),
+                              //       Expanded(
+                              //         child: Padding(
+                              //           padding: const EdgeInsets.only(
+                              //               left: 4.0, right: 8.0),
+                              //           child: TextButton(
+                              //             onPressed: () {
+                              //               if (!_isVideoCameraSelected) {
+                              //                 setState(() {
+                              //                   _isVideoCameraSelected = true;
+                              //                 });
+                              //               }
+                              //             },
+                              //             style: TextButton.styleFrom(
+                              //               primary: _isVideoCameraSelected
+                              //                   ? Colors.black
+                              //                   : Colors.black54,
+                              //               backgroundColor:
+                              //               _isVideoCameraSelected
+                              //                   ? Colors.white
+                              //                   : Colors.white30,
+                              //             ),
+                              //             child: Text('VIDEO'),
+                              //           ),
+                              //         ),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    16.0, 16.0, 16.0, 16.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    InkWell(
+                                      onTap: () async {
+                                        setState(() {
+                                          _currentFlashMode = FlashMode.off;
+                                        });
+                                        await controller!.setFlashMode(
+                                          FlashMode.off,
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.flash_off,
+                                        color:
+                                            _currentFlashMode == FlashMode.off
+                                                ? Colors.amber
+                                                : Colors.white,
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        setState(() {
+                                          _currentFlashMode = FlashMode.auto;
+                                        });
+                                        await controller!.setFlashMode(
+                                          FlashMode.auto,
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.flash_auto,
+                                        color:
+                                            _currentFlashMode == FlashMode.auto
+                                                ? Colors.amber
+                                                : Colors.white,
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        setState(() {
+                                          _currentFlashMode = FlashMode.always;
+                                        });
+                                        await controller!.setFlashMode(
+                                          FlashMode.always,
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.flash_on,
+                                        color: _currentFlashMode ==
+                                                FlashMode.always
+                                            ? Colors.amber
+                                            : Colors.white,
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        setState(() {
+                                          _currentFlashMode = FlashMode.torch;
+                                        });
+                                        await controller!.setFlashMode(
+                                          FlashMode.torch,
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.highlight,
+                                        color:
+                                            _currentFlashMode == FlashMode.torch
+                                                ? Colors.amber
+                                                : Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 8.0, horizontal: 25.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    InkWell(
+                                      onTap:
+                                          // _isRecordingInProgress
+                                          //     ? () async {
+                                          //   if (controller!
+                                          //       .value.isRecordingPaused) {
+                                          //     await resumeVideoRecording();
+                                          //   } else {
+                                          //     await pauseVideoRecording();
+                                          //   }
+                                          // }
+                                          //     :
+                                          () {
+                                        setState(() {
+                                          _isCameraInitialized = false;
+                                        });
+                                        onNewCameraSelected(cameras[
+                                            _isRearCameraSelected ? 1 : 0]);
+                                        setState(() {
+                                          _isRearCameraSelected =
+                                              !_isRearCameraSelected;
+                                        });
+                                      },
+                                      child: Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.circle,
+                                            color: Colors.black38,
+                                            size: 60,
+                                          ),
+                                          // _isRecordingInProgress
+                                          //     ? controller!
+                                          //     .value.isRecordingPaused
+                                          //     ? Icon(
+                                          //   Icons.play_arrow,
+                                          //   color: Colors.white,
+                                          //   size: 30,
+                                          // )
+                                          //     : Icon(
+                                          //   Icons.pause,
+                                          //   color: Colors.white,
+                                          //   size: 30,
+                                          // )
+                                          //     :
+                                          Icon(
+                                            _isRearCameraSelected
+                                                ? Icons.camera_front
+                                                : Icons.camera_rear,
+                                            color: Colors.white,
+                                            size: 30,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap:
+                                          // _isVideoCameraSelected
+                                          //     ? () async {
+                                          //   if (_isRecordingInProgress) {
+                                          //     XFile? rawVideo =
+                                          //     await stopVideoRecording();
+                                          //     File videoFile =
+                                          //     File(rawVideo!.path);
+                                          //
+                                          //     int currentUnix = DateTime
+                                          //         .now()
+                                          //         .millisecondsSinceEpoch;
+                                          //
+                                          //     final directory =
+                                          //     await getApplicationDocumentsDirectory();
+                                          //
+                                          //     String fileFormat = videoFile
+                                          //         .path
+                                          //         .split('.')
+                                          //         .last;
+                                          //
+                                          //     _videoFile =
+                                          //     await videoFile.copy(
+                                          //       '${directory.path}/$currentUnix.$fileFormat',
+                                          //     );
+                                          //
+                                          //     _startVideoPlayer();
+                                          //   } else {
+                                          //     await startVideoRecording();
+                                          //   }
+                                          // }
+                                          //     :
+                                          () async {
+                                        XFile? rawImage = await takePicture();
+                                        File imageFile = File(rawImage!.path);
 
-                      ],
+                                        int currentUnix = DateTime.now()
+                                            .millisecondsSinceEpoch;
+
+                                        final directory =
+                                            await getApplicationDocumentsDirectory();
+
+                                        String fileFormat =
+                                            imageFile.path.split('.').last;
+
+                                        print(fileFormat);
+
+                                        await imageFile.copy(
+                                          '${directory.path}/$currentUnix.$fileFormat',
+                                        );
+
+                                        refreshAlreadyCapturedImages();
+                                      },
+                                      child: Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.circle,
+                                            color
+                                                // : _isVideoCameraSelected
+                                                // ? Colors.white
+                                                : Colors.white38,
+                                            size: 80,
+                                          ),
+                                          Icon(
+                                            Icons.circle,
+                                            color
+                                                // : _isVideoCameraSelected
+                                                // ? Colors.red
+                                                : Colors.white,
+                                            size: 65,
+                                          ),
+                                          // _isVideoCameraSelected &&
+                                          //     _isRecordingInProgress
+                                          //     ? Icon(
+                                          //   Icons.stop_rounded,
+                                          //   color: Colors.white,
+                                          //   size: 32,
+                                          // )
+                                          //     :
+                                          Container(),
+                                        ],
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: _imageFile != null ||
+                                              _videoFile != null
+                                          ? () {
+                                              Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      PreviewScreen(
+                                                    imageFile: _imageFile!,
+                                                    fileList: allFileList,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          : null,
+                                      child: Container(
+                                        width: 60,
+                                        height: 60,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          border: Border.all(
+                                            color: Colors.white,
+                                            width: 2,
+                                          ),
+                                          image: _imageFile != null
+                                              ? DecorationImage(
+                                                  image: FileImage(_imageFile!),
+                                                  fit: BoxFit.cover,
+                                                )
+                                              : null,
+                                        ),
+                                        child
+                                            //     : videoController != null &&
+                                            //     videoController!
+                                            //         .value.isInitialized
+                                            //     ? ClipRRect(
+                                            //   borderRadius:
+                                            //   BorderRadius.circular(
+                                            //       8.0),
+                                            //   child: AspectRatio(
+                                            //     aspectRatio:
+                                            //     videoController!
+                                            //         .value.aspectRatio,
+                                            //     child: VideoPlayer(
+                                            //         videoController!),
+                                            //   ),
+                                            // )
+                                            : Container(),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : Center(
+                    child: Text(
+                      'LOADING',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(),
+                  Text(
+                    'Permission denied',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                  SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: () {
+                      getPermissionStatus();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Give permission',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 8.0),
-                    //   child: Row(
-                    //     children: [
-                    //       Expanded(
-                    //         child: Padding(
-                    //           padding: const EdgeInsets.only(
-                    //             left: 8.0,
-                    //             right: 4.0,
-                    //           ),
-                    //           child: TextButton(
-                    //             onPressed: _isRecordingInProgress
-                    //                 ? null
-                    //                 : () {
-                    //               if (_isVideoCameraSelected) {
-                    //                 setState(() {
-                    //                   _isVideoCameraSelected =
-                    //                   false;
-                    //                 });
-                    //               }
-                    //             },
-                    //             style: TextButton.styleFrom(
-                    //               primary: _isVideoCameraSelected
-                    //                   ? Colors.black54
-                    //                   : Colors.black,
-                    //               backgroundColor:
-                    //               _isVideoCameraSelected
-                    //                   ? Colors.white30
-                    //                   : Colors.white,
-                    //             ),
-                    //             child: Text('IMAGE'),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       Expanded(
-                    //         child: Padding(
-                    //           padding: const EdgeInsets.only(
-                    //               left: 4.0, right: 8.0),
-                    //           child: TextButton(
-                    //             onPressed: () {
-                    //               if (!_isVideoCameraSelected) {
-                    //                 setState(() {
-                    //                   _isVideoCameraSelected = true;
-                    //                 });
-                    //               }
-                    //             },
-                    //             style: TextButton.styleFrom(
-                    //               primary: _isVideoCameraSelected
-                    //                   ? Colors.black
-                    //                   : Colors.black54,
-                    //               backgroundColor:
-                    //               _isVideoCameraSelected
-                    //                   ? Colors.white
-                    //                   : Colors.white30,
-                    //             ),
-                    //             child: Text('VIDEO'),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          16.0, 16.0, 16.0, 16.0),
-                      child: Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: () async {
-                              setState(() {
-                                _currentFlashMode = FlashMode.off;
-                              });
-                              await controller!.setFlashMode(
-                                FlashMode.off,
-                              );
-                            },
-                            child: Icon(
-                              Icons.flash_off,
-                              color:
-                              _currentFlashMode == FlashMode.off
-                                  ? Colors.amber
-                                  : Colors.white,
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () async {
-                              setState(() {
-                                _currentFlashMode = FlashMode.auto;
-                              });
-                              await controller!.setFlashMode(
-                                FlashMode.auto,
-                              );
-                            },
-                            child: Icon(
-                              Icons.flash_auto,
-                              color:
-                              _currentFlashMode == FlashMode.auto
-                                  ? Colors.amber
-                                  : Colors.white,
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () async {
-                              setState(() {
-                                _currentFlashMode = FlashMode.always;
-                              });
-                              await controller!.setFlashMode(
-                                FlashMode.always,
-                              );
-                            },
-                            child: Icon(
-                              Icons.flash_on,
-                              color: _currentFlashMode ==
-                                  FlashMode.always
-                                  ? Colors.amber
-                                  : Colors.white,
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () async {
-                              setState(() {
-                                _currentFlashMode = FlashMode.torch;
-                              });
-                              await controller!.setFlashMode(
-                                FlashMode.torch,
-                              );
-                            },
-                            child: Icon(
-                              Icons.highlight,
-                              color:
-                              _currentFlashMode == FlashMode.torch
-                                  ? Colors.amber
-                                  : Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 25.0),
-                      child: Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap:
-                            // _isRecordingInProgress
-                            //     ? () async {
-                            //   if (controller!
-                            //       .value.isRecordingPaused) {
-                            //     await resumeVideoRecording();
-                            //   } else {
-                            //     await pauseVideoRecording();
-                            //   }
-                            // }
-                            //     :
-                                () {
-                              setState(() {
-                                _isCameraInitialized = false;
-                              });
-                              onNewCameraSelected(cameras[
-                              _isRearCameraSelected
-                                  ? 1
-                                  : 0]);
-                              setState(() {
-                                _isRearCameraSelected =
-                                !_isRearCameraSelected;
-                              });
-                            },
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Icon(
-                                  Icons.circle,
-                                  color: Colors.black38,
-                                  size: 60,
-                                ),
-                                // _isRecordingInProgress
-                                //     ? controller!
-                                //     .value.isRecordingPaused
-                                //     ? Icon(
-                                //   Icons.play_arrow,
-                                //   color: Colors.white,
-                                //   size: 30,
-                                // )
-                                //     : Icon(
-                                //   Icons.pause,
-                                //   color: Colors.white,
-                                //   size: 30,
-                                // )
-                                //     :
-                                Icon(
-                                  _isRearCameraSelected
-                                      ? Icons.camera_front
-                                      : Icons.camera_rear,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                              ],
-                            ),
-                          ),
-                          InkWell(
-                            onTap:
-                            // _isVideoCameraSelected
-                            //     ? () async {
-                            //   if (_isRecordingInProgress) {
-                            //     XFile? rawVideo =
-                            //     await stopVideoRecording();
-                            //     File videoFile =
-                            //     File(rawVideo!.path);
-                            //
-                            //     int currentUnix = DateTime
-                            //         .now()
-                            //         .millisecondsSinceEpoch;
-                            //
-                            //     final directory =
-                            //     await getApplicationDocumentsDirectory();
-                            //
-                            //     String fileFormat = videoFile
-                            //         .path
-                            //         .split('.')
-                            //         .last;
-                            //
-                            //     _videoFile =
-                            //     await videoFile.copy(
-                            //       '${directory.path}/$currentUnix.$fileFormat',
-                            //     );
-                            //
-                            //     _startVideoPlayer();
-                            //   } else {
-                            //     await startVideoRecording();
-                            //   }
-                            // }
-                            //     :
-                                () async {
-                              XFile? rawImage =
-                              await takePicture();
-                              File imageFile = File(rawImage!.path);
-
-                              int currentUnix = DateTime.now().millisecondsSinceEpoch;
-
-                              final directory = await getApplicationDocumentsDirectory();
-
-                              String fileFormat = imageFile
-                                  .path
-                                  .split('.')
-                                  .last;
-
-                              print(fileFormat);
-
-                              await imageFile.copy(
-                                '${directory.path}/$currentUnix.$fileFormat',
-                              );
-
-                              refreshAlreadyCapturedImages();
-                            },
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Icon(
-                                  Icons.circle,
-                                  color
-                                      // : _isVideoCameraSelected
-                                      // ? Colors.white
-                                      : Colors.white38,
-                                  size: 80,
-                                ),
-                                Icon(
-                                  Icons.circle,
-                                  color
-                                      // : _isVideoCameraSelected
-                                      // ? Colors.red
-                                      : Colors.white,
-                                  size: 65,
-                                ),
-                                // _isVideoCameraSelected &&
-                                //     _isRecordingInProgress
-                                //     ? Icon(
-                                //   Icons.stop_rounded,
-                                //   color: Colors.white,
-                                //   size: 32,
-                                // )
-                                //     :
-                              Container(),
-                              ],
-                            ),
-                          ),
-                          InkWell(
-                            onTap: _imageFile != null ||
-                                _videoFile != null
-                                ? () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      PreviewScreen(
-                                        imageFile: _imageFile!,
-                                        fileList: allFileList,
-                                      ),
-                                ),
-                              );
-                            }
-                                : null,
-                            child: Container(
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius:
-                                BorderRadius.circular(10.0),
-                                border: Border.all(
-                                  color: Colors.white,
-                                  width: 2,
-                                ),
-                                image: _imageFile != null
-                                    ? DecorationImage(
-                                  image:
-                                  FileImage(_imageFile!),
-                                  fit: BoxFit.cover,
-                                )
-                                    : null,
-                              ),
-                              child
-                              //     : videoController != null &&
-                              //     videoController!
-                              //         .value.isInitialized
-                              //     ? ClipRRect(
-                              //   borderRadius:
-                              //   BorderRadius.circular(
-                              //       8.0),
-                              //   child: AspectRatio(
-                              //     aspectRatio:
-                              //     videoController!
-                              //         .value.aspectRatio,
-                              //     child: VideoPlayer(
-                              //         videoController!),
-                              //   ),
-                              // )
-                                  : Container(),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        )
-            : Center(
-          child: Text(
-            'LOADING',
-            style: TextStyle(color: Colors.white),
-          ),
-        )
-            : Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(),
-            Text(
-              'Permission denied',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
-            SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                getPermissionStatus();
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Give permission',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
