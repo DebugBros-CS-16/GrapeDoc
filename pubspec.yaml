@@ -64,6 +64,9 @@ dependencies:
   #get view of website
   webview_flutter: ^3.0.1
 
+  #expand multiple elevated buttons
+  flutter_speed_dial: ^5.0.0+1
+
 #  firebase_ml_vision: ^0.9.10
 #  firebase_ml_custom: ^0.2.0+3
 #  firebase_ml_model_downloader: ^0.1.0+8
