@@ -1,0 +1,4 @@
+Grape___Black_rot
+Grape___Esca_(Black_Measles)
+Grape___Leaf_blight_(Isariopsis_Leaf_Spot)
+Grape___healthy
