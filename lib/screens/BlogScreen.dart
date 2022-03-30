@@ -16,7 +16,7 @@ class BlogScreen extends StatefulWidget {
 class _BlogScreenState extends State<BlogScreen> {
   CrudMethods crudMethods = CrudMethods();
  late FirebaseFirestore firestore;
-//gggg
+
   Stream? blogsStream;
 
   Widget BlogList(){
