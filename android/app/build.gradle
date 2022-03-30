@@ -20,11 +20,11 @@ def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
-
 apply plugin: 'com.android.application'
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
 
 android {
     compileSdkVersion 31
@@ -72,8 +72,9 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation platform('com.google.firebase:firebase-bom:29.1.0')
-    implementation 'com.google.firebase:firebase-analytics'
+    implementation platform('com.google.firebase:firebase-bom:29.2.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
 //    // Declare the dependency for the Firebase ML model downloader library
 //    // When using the BoM, you don't specify versions in Firebase library dependencies
 //    implementation 'com.google.firebase:firebase-ml-modeldownloader'
@@ -83,5 +84,3 @@ dependencies {
 //    api 'com.google.firebase:firebase-ml-model-interpreter:22.0.4'
 //    //api 'com.google.firebase:firebase-ml-vision-image-label-model:17.0.2'
 }
-
-apply plugin: 'com.google.gms.google-services'

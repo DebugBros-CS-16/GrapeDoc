@@ -2,6 +2,13 @@
     package="com.grape_doc">
 
     <queries>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="image/jpeg" />
+        </intent>
+    </queries>
+
+    <queries>
         <provider android:authorities="com.facebook.katana.provider.PlatformProvider" /> <!-- allows app to access Facebook app features -->
         <provider android:authorities="com.facebook.orca.provider.PlatformProvider" /> <!-- allows sharing to Messenger app -->
     </queries>
@@ -64,5 +71,6 @@
 <!--           android:value="label" />-->
 
     </application>
+
 </manifest>
 

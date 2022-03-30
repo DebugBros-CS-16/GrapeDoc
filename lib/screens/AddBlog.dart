@@ -56,7 +56,7 @@ class _AddBlogState extends State<AddBlog> {
 
       try {
         final task = await firebase_storage.FirebaseStorage.instance
-            .ref()
+            .ref().child("images/${randomAlphaNumeric(9)}.jpg")
             .putFile(selectedImage!);
 
         //final StorageUploadTask task = reference.putFile(selectedImage);
