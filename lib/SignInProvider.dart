@@ -9,6 +9,7 @@ import 'package:grape_doc/screens/NavBar.dart';
 
 class GoogleSignInProvider extends ChangeNotifier {
   final authService = AuthService();
+  final FirebaseAuth _auth= FirebaseAuth.instance;
 
   final googleSignIn = GoogleSignIn();
   final facebookSignIn = FacebookLogin();
@@ -19,6 +20,19 @@ class GoogleSignInProvider extends ChangeNotifier {
   Stream<User?> get currentUser => authService.currentUser;
 
   Future googleLogin() async{
+
+    //
+    // final GoogleSignInAccount? googleSignInAccount =
+    // await googleSignIn.signIn();
+    // final GoogleSignInAuthentication googleSignInAuthentication =
+    // await googleSignInAccount!.authentication;
+    // final AuthCredential credential = GoogleAuthProvider.credential(
+    //   accessToken: googleSignInAuthentication.accessToken,
+    //   idToken: googleSignInAuthentication.idToken,
+    // );
+    // final authResult = await _auth.signInWithCredential(credential);
+    print("LOGGED IN USING GOOGLE");
+
     final googleUser = await googleSignIn.signIn();
     if (googleUser == null) return;
     _user = googleUser;
@@ -33,6 +47,7 @@ class GoogleSignInProvider extends ChangeNotifier {
     await authService.signInWithCredential(credential);
 
     notifyListeners();
+
   }
 
   facebookLogin() async{

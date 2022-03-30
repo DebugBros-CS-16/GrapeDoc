@@ -15,15 +15,16 @@ class BlogScreen extends StatefulWidget {
 
 class _BlogScreenState extends State<BlogScreen> {
   CrudMethods crudMethods = CrudMethods();
+ late FirebaseFirestore firestore;
 
   Stream? blogsStream;
 
   Widget BlogList(){
     return Container(
-      child: blogsStream != null ? Column(
+      child: blogsStream == null ? Column(
         children: [
           StreamBuilder<dynamic>(
-            stream: blogsStream,
+            stream: firestore.collection('blogs').snapshots() ,
             builder: (context, snapshot){
               return ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -48,6 +49,7 @@ class _BlogScreenState extends State<BlogScreen> {
   @override
   void initState() {
     super.initState();
+     firestore = FirebaseFirestore.instance;
     crudMethods.getData().then((result) {
       blogsStream = result;
     });
@@ -60,7 +62,8 @@ class _BlogScreenState extends State<BlogScreen> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: (){
-          Navigator.push(context,
+
+         Navigator.push(context,
               MaterialPageRoute(builder: (context) => AddBlog()));
         },
       ),
