@@ -23,21 +23,29 @@ class _BlogScreenState extends State<BlogScreen> {
     return Container(
       child: blogsStream == null ? Column(
         children: [
-          StreamBuilder<dynamic>(
-            stream: firestore.collection('blogs').snapshots() ,
-            builder: (context, snapshot){
-              return ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  itemCount: snapshot.data.docs.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index){
-                    return BlogsTile(
-                      title: snapshot.data.docs[index]['title'],
-                      desc: snapshot.data.docs[index]['desc'],
-                      imgUrl: snapshot.data.docs[index]['imgUrl'],
-                    );
-                  });
-            })
+            Flexible(
+              child: StreamBuilder<dynamic>(
+                stream: firestore.collection('blogs').snapshots() ,
+                builder: (context, snapshot){
+                  if (!snapshot.hasData) return Center(child: const CircularProgressIndicator());
+                  return SingleChildScrollView(
+                    child: Container(
+                      height: 1000.0,
+                      child: ListView.builder(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          itemCount: snapshot.data.docs.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index){
+                            return BlogsTile(
+                              title: snapshot.data.docs[index]['title'],
+                              desc: snapshot.data.docs[index]['desc'],
+                              imgUrl: snapshot.data.docs[index]['imgUrl'],
+                            );
+                          }),
+                    ),
+                  );
+                }),
+            ),
         ],
       ): Container(
         alignment: Alignment.center,
@@ -49,7 +57,7 @@ class _BlogScreenState extends State<BlogScreen> {
   @override
   void initState() {
     super.initState();
-     firestore = FirebaseFirestore.instance;
+    firestore = FirebaseFirestore.instance;
     crudMethods.getData().then((result) {
       blogsStream = result;
     });

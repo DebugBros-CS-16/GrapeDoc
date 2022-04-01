@@ -1,5 +1,4 @@
-Disease:Black_rot
-Disease:Esca_(Black_Measles)
-Disease:Leaf_blight_(Isariopsis_Leaf_Spot)
-Healthy_leaf
-Invalid_Input
+Grape___Black_rot
+Grape___Esca_(Black_Measles)
+Grape___Leaf_blight_(Isariopsis_Leaf_Spot)
+Grape___healthy
