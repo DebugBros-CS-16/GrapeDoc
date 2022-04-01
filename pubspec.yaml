@@ -45,7 +45,7 @@ dependencies:
   dialogflow_grpc: ^0.2.9
   rxdart: ^0.27.1
 
-  tflite: ^1.1.2
+#  tflite: ^1.1.2
   meta: ^1.7.0
 
   tflite_flutter: ^0.9.0
