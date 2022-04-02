@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../controllers/register_controller.dart';
 import 'LoginScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -10,9 +12,11 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
+  final RegisterController controller = Get.put(RegisterController());
   bool hide = true;
-  TextEditingController password = TextEditingController();
-  TextEditingController cpassword = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,17 +62,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 children: [
                   TextField(
+                    controller: controller.email,
                     decoration: InputDecoration(
                         hintText: "Email",
                         prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10))),
+                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   TextField(
-                    controller: password,
+                    controller: controller.password,
                     obscureText: hide,
                     decoration: InputDecoration(
                         hintText: "Password",
@@ -85,12 +91,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         prefixIcon: const Icon(Icons.lock),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10))),
+                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   TextField(
-                    controller: cpassword,
+                    controller: controller.passwordretype,
                     obscureText: hide,
                     decoration: InputDecoration(
                         hintText: "Confirm Password",
@@ -107,6 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         prefixIcon: Icon(Icons.lock),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10))),
+                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 20,
@@ -116,30 +124,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           backgroundColor: Colors.purple,
                           padding: const EdgeInsets.symmetric(horizontal: 80)),
                       onPressed: () {
-                        if (password.text != cpassword.text) {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: const Text("Message"),
-                                  content: const Text(
-                                      "Your Enter Password Do Not Match Each Other"),
-                                  actions: [
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text("OK"))
-                                  ],
-                                );
-                              });
-                        } else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginScreen()));
-                        }
+                        print("0000000000");
+                        controller.registerUser();
                       },
+                      // {
+                      //   if (controller.password.text != controller.passwordretype.text) {
+                      //     showDialog(
+                      //         context: context,
+                      //         builder: (context) {
+                      //           return AlertDialog(
+                      //             title: const Text("Message"),
+                      //             content: const Text(
+                      //                 "Your Enter Password Do Not Match Each Other"),
+                      //             actions: [
+                      //               TextButton(
+                      //                   onPressed: () {
+                      //                     Navigator.pop(context);
+                      //                   },
+                      //                   child: const Text("OK"))
+                      //             ],
+                      //           );
+                      //         });
+                      //   } else {
+                      //     Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //             builder: (context) => const LoginScreen()));
+                      //   }
+                      // },
                       child: const Text("Register")),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:grape_doc/SignInProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import '../controllers/signin_controller.dart';
+import '../controllers/login_controller.dart';
 import 'NavBar.dart';
 import 'RegisterScreen.dart';
 
