@@ -2,17 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grape_doc/SignInProvider.dart';
-import 'package:grape_doc/screens/testCamera.dart';
-import 'package:grape_doc/screens/testImagePicker.dart';
-import 'package:grape_doc/screens/testML.dart';
+import 'package:grape_doc/screens/CaptureScreen.dart';
 import 'package:grape_doc/widgets/Navigation_drawer_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'BlogScreen.dart';
-import 'CameraScreen.dart';
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
-import 'SignupScreen.dart';
+import 'RegisterScreen.dart';
 
 class NavBar extends StatefulWidget {
   NavBar({Key? key}) : super(key: key);
@@ -36,7 +33,7 @@ class _NavBarState extends State<NavBar> {
     //CameraScreen(),
     //TestCamera(),
     //TestML(),
-    TestImagePicker(),
+    CaptureScreen(),
     const HomeScreen(),
     const ChatScreen(),
     const BlogScreen()

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:grape_doc/screens/BlogScreen.dart';
-import 'package:grape_doc/screens/CameraScreen.dart';
 import 'HomeScreen.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';

@@ -1,14 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:get/get.dart';
 import 'package:grape_doc/SignInProvider.dart';
 import 'package:provider/provider.dart';
-import 'HomeScreen.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import '../controllers/signin_controller.dart';
 import 'NavBar.dart';
-import 'SignupScreen.dart';
+import 'RegisterScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,6 +17,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
+  final LoginController controller = Get.put(LoginController());
   bool hide = true;
 
   @override
@@ -79,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         TextField(
+                          controller: controller.email,
                           decoration: InputDecoration(
                               hintText: "Email",
                               prefixIcon: const Icon(Icons.email),
@@ -89,6 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 20,
                         ),
                         TextField(
+                          controller: controller.password,
                           obscureText: hide,
                           decoration: InputDecoration(
                               hintText: "Password",
@@ -117,10 +118,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: TextButton.styleFrom(
                                 backgroundColor: Colors.purple,
                                 padding: const EdgeInsets.symmetric(horizontal: 80)),
-                            onPressed: () async{
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => NavBar()));
+                            onPressed: () {
+                              controller.login();
                             },
+                            // async{
+                            //   Navigator.push(context,
+                            //       MaterialPageRoute(builder: (context) => NavBar()));
+                            // },
                             child: const Text("Login")),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

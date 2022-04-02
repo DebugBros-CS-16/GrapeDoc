@@ -8,14 +8,13 @@ import 'package:camera/camera.dart';
 import 'package:flutter/services.dart';
 import 'package:grape_doc/SignInProvider.dart';
 import 'package:grape_doc/screens/SettingScreen.dart';
-import 'package:grape_doc/screens/testblog.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/ChatScreen.dart';
 import 'screens/HomeScreen.dart';
 import 'screens/NavBar.dart';
-import 'screens/SigninScreen.dart';
-import 'screens/SignupScreen.dart';
+import 'screens/LoginScreen.dart';
+import 'screens/RegisterScreen.dart';
 
 
 List<CameraDescription> cameras = [];

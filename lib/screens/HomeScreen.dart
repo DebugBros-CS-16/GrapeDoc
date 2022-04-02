@@ -6,7 +6,6 @@ import 'package:grape_doc/widgets/Home_news_widget.dart';
 
 import '../Services/crud.dart';
 import 'BlogScreen.dart';
-import 'CameraScreen.dart';
 import 'ChatScreen.dart';
 
 class HomeScreen extends StatefulWidget {

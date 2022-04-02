@@ -21,16 +21,16 @@ import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
 //   }
 // }
 
-class TestImagePicker extends StatefulWidget {
-  TestImagePicker({Key? key, this.title}) : super(key: key);
+class CaptureScreen extends StatefulWidget {
+  CaptureScreen({Key? key, this.title}) : super(key: key);
 
   final String? title;
 
   @override
-  _TestImagePickerState createState() => _TestImagePickerState();
+  _CaptureScreenState createState() => _CaptureScreenState();
 }
 
-class _TestImagePickerState extends State<TestImagePicker> {
+class _CaptureScreenState extends State<CaptureScreen> {
   late Classifier _classifier;
 
   var logger = Logger();
