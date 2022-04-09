@@ -16,13 +16,12 @@ import 'screens/NavBar.dart';
 import 'screens/LoginScreen.dart';
 import 'screens/RegisterScreen.dart';
 
-
 List<CameraDescription> cameras = [];
 
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  try{
+  try {
     cameras = await availableCameras();
   } on CameraException catch (e) {
     print('Error in fetching the cameras: $e');
@@ -39,6 +38,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (BuildContext context) => GoogleSignInProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.purple,
@@ -60,32 +60,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Future.delayed(
-      const Duration(seconds: 3),
+        const Duration(seconds: 3),
         () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => StreamBuilder(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator(),);
-              } else if (snapshot.hasData) {
-                return NavBar();
-              } else if (snapshot.hasError) {
-                return Center(child: Text('Something Went Wrong!'),);
-              } else {
-                return LoginScreen();
-              }
-            },
-          ),
-          ),
-        )
-    );
+              context,
+              MaterialPageRoute(
+                builder: (context) => StreamBuilder(
+                  stream: FirebaseAuth.instance.authStateChanges(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.hasData) {
+                      return NavBar();
+                    } else if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Something Went Wrong!'),
+                      );
+                    } else {
+                      return LoginScreen();
+                    }
+                  },
+                ),
+              ),
+            ));
   }
 
   @override
@@ -97,14 +100,13 @@ class _MyHomePageState extends State<MyHomePage> {
           tooltip: 'Navigation menu',
           onPressed: null,
         ),
-        title: const Text('Grape Doc',
-          style: TextStyle(fontWeight: FontWeight.bold,
-              fontSize: 28.0),
+        title: const Text(
+          'Grape Doc',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
         ),
         centerTitle: true,
         backgroundColor: Colors.purple,
       ),
-
       body: Center(
         child: Column(
           children: <Widget>[

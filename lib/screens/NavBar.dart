@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import 'BlogScreen.dart';
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
-import 'RegisterScreen.dart';
 
 class NavBar extends StatefulWidget {
   NavBar({Key? key}) : super(key: key);

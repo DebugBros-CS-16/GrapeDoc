@@ -181,13 +181,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         //
 
-                        SignInButton(
-                          Buttons.Facebook,
-                          onPressed: () {
-                            final provider =  Provider.of<GoogleSignInProvider>(context, listen: false);
-                            provider.facebookLogin();
-                          },
-                        ),
+                        // SignInButton(
+                        //   Buttons.Facebook,
+                        //   onPressed: () {
+                        //     final provider =  Provider.of<GoogleSignInProvider>(context, listen: false);
+                        //     provider.facebookLogin();
+                        //   },
+                        // ),
 
                         // SignInButtonBuilder(
                         //   text: 'Sign in with Email',

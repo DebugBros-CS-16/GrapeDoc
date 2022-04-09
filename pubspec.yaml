@@ -29,9 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_facebook_auth: ^4.0.1
   path_provider: ^2.0.8
-  video_player: ^2.2.5
   permission_handler: ^8.3.0
   image_picker: ^0.8.4+7
   camera: ^0.9.4+11
@@ -56,7 +54,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_login_facebook: ^1.3.0
   cloud_firestore: ^3.1.8
   random_string: ^2.3.1
   firebase_storage: ^10.2.7
@@ -67,6 +64,12 @@ dependencies:
 
   #expand multiple elevated buttons
   flutter_speed_dial: ^5.0.0+1
+
+  #for web feed
+  http: ^0.13.4
+  webfeed: ^0.7.0
+  url_launcher: ^6.0.20
+  intl: ^0.17.0
 
 #  firebase_ml_vision: ^0.9.10
 #  firebase_ml_custom: ^0.2.0+3
@@ -100,6 +103,7 @@ flutter:
    - assets/images/grapedoclogo1.png
    - assets/images/google.png
    - assets/images/facebook.png
+   - assets/images/grapesicon.png
    - assets/credentials.json
 
     #assets to the model
