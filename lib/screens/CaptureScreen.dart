@@ -1,9 +1,13 @@
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:firebase_core/firebase_core.dart' as firebase_core;
+import 'package:random_string/random_string.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import '../Services/crud.dart';
 import 'classifier.dart';
 import 'classifier_quant.dart';
 import 'package:logger/logger.dart';
@@ -29,6 +33,7 @@ class _CaptureScreenState extends State<CaptureScreen> {
   var symptoms;
   var solution;
 
+  CrudMethods crudMethods = CrudMethods();
   var logger = Logger();
 
   File? _image;
@@ -85,9 +90,40 @@ class _CaptureScreenState extends State<CaptureScreen> {
     img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
     var pred = _classifier.predict(imageInput);
     readJson();
+    uploadLastScan();
+
     setState(() {
       this.category = pred;
     });
+  }
+
+  Future uploadLastScan() async{
+    firebase_storage.Reference firebaseStorage = firebase_storage.FirebaseStorage.instance
+        .ref()
+        .child("lastScans")
+        .child("${randomAlphaNumeric(9)}.jpg");
+
+    try {
+      final task = await firebase_storage.FirebaseStorage.instance
+          .ref().child("lastScans/${randomAlphaNumeric(9)}.jpg")
+          .putFile(_image!);
+
+      //final StorageUploadTask task = reference.putFile(selectedImage);
+      var downloadUrl = await (await task).ref.getDownloadURL();
+
+      print("this is url$downloadUrl");
+
+      Map<String, String> lastScanMap = {
+        "imgUrl": downloadUrl,
+        "title": category!.label,
+      };
+
+      crudMethods.updateScanData(lastScanMap);
+
+
+    } on firebase_core.FirebaseException catch (e) {
+      // e.g, e.code == 'canceled'
+    }
   }
 
   Future<void> readJson() async {

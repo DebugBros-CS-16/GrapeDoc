@@ -71,6 +71,7 @@ dev_dependencies:
   random_string: ^2.3.1
   firebase_storage: ^10.2.7
   cached_network_image: ^3.2.0
+  readmore: ^2.1.0
 
   #for web feed
   http: ^0.13.4

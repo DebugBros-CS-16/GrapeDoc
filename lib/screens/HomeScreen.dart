@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grapedoc_test/screens/FeedScreen.dart';
 
-
 import '../Services/crud.dart';
 import 'BlogScreen.dart';
+import 'CaptureScreen.dart';
 import 'ChatScreen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -161,38 +161,38 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 child: imgUrl == null
                                     ? Container(
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 10.0),
-                                    height: 250.0,
-                                    width:
-                                    MediaQuery.of(context).size.width,
-                                    decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius:
-                                      BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                        child: const Text(
-                                            'No Last Scans Found')))
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 10.0),
+                                        height: 250.0,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black12,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Center(
+                                            child: const Text(
+                                                'No Last Scans Found')))
                                     : Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 10.0),
-                                  height: 250.0,
-                                  width:
-                                  MediaQuery.of(context).size.width,
-                                  child: ClipRRect(
-                                    borderRadius:
-                                    BorderRadius.circular(10),
-                                    child: _isLoading
-                                        ? Image.network(
-                                      imgUrl,
-                                      fit: BoxFit.cover,
-                                    )
-                                        : Center(
-                                        child:
-                                        CircularProgressIndicator()),
-                                  ),
-                                ),
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 10.0),
+                                        height: 250.0,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: _isLoading
+                                              ? Image.network(
+                                                  imgUrl,
+                                                  fit: BoxFit.cover,
+                                                )
+                                              : Center(
+                                                  child:
+                                                      CircularProgressIndicator()),
+                                        ),
+                                      ),
                               ),
                             ],
                           );
@@ -203,7 +203,106 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           SizedBox(
-            height: 10.0,
+            height: 20.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CaptureScreen()));
+                },
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(5),
+                    //border: Border.all(color: Colors.black12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.red.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: Offset(2, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(Icons.camera_alt_rounded,color: Colors.white,),
+                      Text("Scan", style: TextStyle(color: Colors.white),)
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()));
+                },
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(5),
+                    //border: Border.all(color: Colors.black12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: Offset(2, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(Icons.chat_rounded,color: Colors.white,),
+                      Text("Chat", style: TextStyle(color: Colors.white),)
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BlogScreen()));
+                },
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(5),
+                    //border: Border.all(color: Colors.black12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.green.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: Offset(2, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(Icons.web,color: Colors.white,),
+                      Text("Blog", style: TextStyle(color: Colors.white),)
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20.0,
           ),
           GestureDetector(
             onTap: () {
@@ -214,9 +313,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 150.0,
               width: double.infinity,
               padding:
-              const EdgeInsets.only(left: 20.0, top: 20.0, bottom: 20.0),
+                  const EdgeInsets.only(left: 20.0, top: 20.0, bottom: 20.0),
               margin:
-              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               //color: Colors.blue,
               decoration: BoxDecoration(
                 color: Colors.purple,
@@ -279,7 +378,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 200.0,
               width: double.infinity,
               margin:
-              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               //color: Colors.blue,
               decoration: BoxDecoration(
                 color: Colors.blue,
