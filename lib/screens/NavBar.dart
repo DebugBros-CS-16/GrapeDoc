@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +13,12 @@ import 'ChatScreen.dart';
 import 'HomeScreen.dart';
 import 'RegisterScreen.dart';
 
+StreamController<int> streamController = StreamController<int>();
+
 class NavBar extends StatefulWidget {
-  NavBar({Key? key}) : super(key: key);
+  NavBar(this.index,this.stream);
+  final int index;
+  final Stream<int> stream;
 
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
@@ -23,18 +29,31 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 1;
 
-  void _tabNavigator(index) {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    widget.stream.listen((index) {
+      tabNavigator(index);
+      print("listned $index" );
+    });
+  }
+
+  void tabNavigator(index) {
     setState(() {
       _currentIndex = index;
     });
   }
+
+  final int index = 1;
+  //final Stream<int> stream;
 
   static final List<Widget> _pages = <Widget>[
     //CameraScreen(),
     //TestCamera(),
     //TestML(),
     CaptureScreen(),
-    const HomeScreen(),
+    HomeScreen(),
     const ChatScreen(),
     const BlogScreen()
   ];
@@ -44,7 +63,7 @@ class _NavBarState extends State<NavBar> {
     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
   );
 
-  _NavBarState() {
+  NavBarState() {
     Future.delayed(
         const Duration(seconds: 3),
         () => setState(() {
@@ -102,7 +121,7 @@ class _NavBarState extends State<NavBar> {
           BottomNavigationBarItem(icon: Icon(Icons.web), label: 'Blog'),
         ],
         onTap: (index) {
-          _tabNavigator(index);
+          tabNavigator(index);
         },
       ),
     );

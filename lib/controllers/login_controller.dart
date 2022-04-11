@@ -24,7 +24,7 @@ class LoginController extends GetxController {
         if (user != null) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => NavBar()),
+            MaterialPageRoute(builder: (context) => NavBar(1, streamController.stream)),
           );
         }
       } catch (e) {

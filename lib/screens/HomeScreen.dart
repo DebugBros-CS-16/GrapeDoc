@@ -1,16 +1,25 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grapedoc_test/screens/FeedScreen.dart';
+import 'package:grapedoc_test/screens/NavBar.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import '../Services/crud.dart';
 import 'BlogScreen.dart';
 import 'CaptureScreen.dart';
 import 'ChatScreen.dart';
+import 'NavBar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  //final int index;
+  //final Stream<int> stream;
+  //StreamController<int> streamController = StreamController<int>();
+  
+  //HomeScreen(this.index,this.stream);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -171,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        child: Center(
+                                        child:  Center(
                                             child: const Text(
                                                 'No Last Scans Found')))
                                     : Container(
@@ -184,10 +193,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           child: _isLoading
-                                              ? Image.network(
-                                                  imgUrl,
-                                                  fit: BoxFit.cover,
-                                                )
+                                              ? CachedNetworkImage(
+                                            placeholder: (context, url) =>
+                                                Image.asset("assets/images/grapedoclogo.png"),
+                                            imageUrl: imgUrl,
+                                            width: MediaQuery.of(context).size.width,
+                                            fit: BoxFit.cover,
+                                          )
                                               : Center(
                                                   child:
                                                       CircularProgressIndicator()),
@@ -211,20 +223,21 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CaptureScreen()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => CaptureScreen()));
+                  streamController.add(0);
                 },
                 child: Container(
                   width: 60.0,
                   height: 60.0,
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(5),
                     //border: Border.all(color: Colors.black12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.red.withOpacity(0.5),
+                        color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 5,
                         offset: Offset(2, 3), // changes position of shadow
@@ -233,28 +246,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-                      Icon(Icons.camera_alt_rounded,color: Colors.white,),
-                      Text("Scan", style: TextStyle(color: Colors.white),)
+                      Icon(Icons.camera_alt_rounded,color: Colors.black,),
+                      Text("Scan", style: TextStyle(color: Colors.black),)
                     ],
                   ),
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ChatScreen()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => ChatScreen()));
+                  streamController.add(2);
                 },
                 child: Container(
                   width: 60.0,
                   height: 60.0,
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(5),
                     //border: Border.all(color: Colors.black12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.blue.withOpacity(0.5),
+                        color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 5,
                         offset: Offset(2, 3), // changes position of shadow
@@ -263,28 +277,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-                      Icon(Icons.chat_rounded,color: Colors.white,),
-                      Text("Chat", style: TextStyle(color: Colors.white),)
+                      Icon(Icons.chat_rounded,color: Colors.black,),
+                      Text("Chat", style: TextStyle(color: Colors.black),)
                     ],
                   ),
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => BlogScreen()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => BlogScreen()));
+                  streamController.add(3);
                 },
                 child: Container(
                   width: 60.0,
                   height: 60.0,
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(5),
                     //border: Border.all(color: Colors.black12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.green.withOpacity(0.5),
+                        color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 5,
                         offset: Offset(2, 3), // changes position of shadow
@@ -293,8 +308,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-                      Icon(Icons.web,color: Colors.white,),
-                      Text("Blog", style: TextStyle(color: Colors.white),)
+                      Icon(Icons.web,color: Colors.black,),
+                      Text("Blog", style: TextStyle(color: Colors.black),)
                     ],
                   ),
                 ),
@@ -324,9 +339,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.purple.withOpacity(0.5),
-                    spreadRadius: 4,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: Offset(2, 3), // changes position of shadow
                   ),
                 ],
               ),
@@ -387,9 +402,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 4,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: Offset(2, 3), // changes position of shadow
                   ),
                 ],
               ),

@@ -89,7 +89,7 @@ class BlogsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 5.0,right: 5.0,bottom: 15.0),
+      margin: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 15.0),
       padding: const EdgeInsets.only(bottom: 10.0),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -138,7 +138,9 @@ class BlogsTile extends StatelessWidget {
                         )),
                   ),
           ),
-          SizedBox(height: 5.0,),
+          SizedBox(
+            height: 5.0,
+          ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(
@@ -147,13 +149,15 @@ class BlogsTile extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Container(
                         child: Text(
-                          title,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ))),
-                SizedBox(height: 5.0,),
+                      title,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ))),
+                SizedBox(
+                  height: 5.0,
+                ),
                 Align(
                     alignment: Alignment.centerLeft,
                     child: Container(
@@ -178,8 +182,7 @@ class BlogsTile extends StatelessWidget {
                           fontSize: 15,
                         ),
                       ),
-                    )
-                ),
+                    )),
               ],
             ),
           ),

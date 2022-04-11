@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     provider.currentUser.listen((User) {
       if (User != null) {
         Navigator.of(context)
-            .pushReplacement(MaterialPageRoute(builder: (context) => NavBar()));
+            .pushReplacement(MaterialPageRoute(builder: (context) => NavBar(1, streamController.stream)));
       }
     });
     super.initState();
