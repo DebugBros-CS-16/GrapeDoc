@@ -7,6 +7,7 @@ import 'CaptureScreen.dart';
 import 'package:grapedoc_test/widgets/Navigation_drawer_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:grapedoc_test/providers/SignInProvider.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
 import 'BlogScreen.dart';
 import 'ChatScreen.dart';
@@ -34,8 +35,9 @@ class _NavBarState extends State<NavBar> {
     // TODO: implement initState
     super.initState();
     widget.stream.listen((index) {
-      tabNavigator(index);
-      print("listned $index" );
+     setState(() {
+       _currentIndex = index;
+     });
     });
   }
 
@@ -103,27 +105,65 @@ class _NavBarState extends State<NavBar> {
         ],
       ),
       body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.green,
-        showSelectedLabels: false,
-        unselectedItemColor: Colors.white,
-        showUnselectedLabels: false,
-        backgroundColor: Colors.black,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+      bottomNavigationBar:
+      BottomNavyBar(backgroundColor: Colors.black,
+        selectedIndex: _currentIndex,
+        showElevation: true,
+        itemCornerRadius: 5,
+        curve: Curves.easeIn,
+        onItemSelected: (index) => setState(() => _currentIndex = index),
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
             icon: Icon(Icons.camera_alt_rounded),
-            label: 'Camera',
+            title: Text('Scan'),
+            inactiveColor: Colors.white70,
+            activeColor: Colors.lightBlueAccent,
+            textAlign: TextAlign.center,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.web), label: 'Blog'),
+          BottomNavyBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+            inactiveColor: Colors.white70,
+            activeColor: Colors.lightBlueAccent,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.chat),
+            title: Text('ChatBot',),
+            inactiveColor: Colors.white70,
+            activeColor: Colors.lightBlueAccent,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.web),
+            title: Text('Blog'),
+            inactiveColor: Colors.white70,
+            activeColor: Colors.lightBlueAccent,
+            textAlign: TextAlign.center,
+          ),
         ],
-        onTap: (index) {
-          tabNavigator(index);
-        },
       ),
+      // BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   currentIndex: _currentIndex,
+      //   selectedItemColor: Colors.green,
+      //   showSelectedLabels: false,
+      //   unselectedItemColor: Colors.white,
+      //   showUnselectedLabels: false,
+      //   backgroundColor: Colors.black,
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.camera_alt_rounded),
+      //       label: 'Camera',
+      //     ),
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.web), label: 'Blog'),
+      //   ],
+      //   onTap: (index) {
+      //     tabNavigator(index);
+      //   },
+      // ),
     );
   }
 }
