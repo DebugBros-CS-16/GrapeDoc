@@ -71,12 +71,18 @@ class _BlogScreenState extends State<BlogScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlogList(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AddBlog()));
-        },
+      floatingActionButton: Align(
+        alignment: Alignment(0.97,1.0),
+        child: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          child: Icon(Icons.add),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5)),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => AddBlog()));
+          },
+        ),
       ),
     );
   }
@@ -182,7 +188,8 @@ class BlogsTile extends StatelessWidget {
                           fontSize: 15,
                         ),
                       ),
-                    )),
+                    )
+                ),
               ],
             ),
           ),

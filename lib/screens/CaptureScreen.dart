@@ -305,22 +305,28 @@ class _CaptureScreenState extends State<CaptureScreen> {
           floatingActionButton: SpeedDial(
             icon: Icons.add,
             animatedIcon: AnimatedIcons.menu_close,
-            backgroundColor: Colors.purple,
-
+            backgroundColor: Colors.blue,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5)),
             overlayColor: Colors.black,
-            overlayOpacity: 0.4,
-            spacing: 10,
-            spaceBetweenChildren: 8,
+            overlayOpacity: 0.2,
+            childrenButtonSize: const Size(45.0, 50.0),
+            spacing: 8,
+            spaceBetweenChildren: 5,
             //closeManually: true,
             openCloseDial: isDialOpen,
             children: [
               SpeedDialChild(
-                  child: Icon(Icons.add_photo_alternate_outlined),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Icon(Icons.add_photo_alternate_outlined, color: Colors.white,),
                   backgroundColor: Colors.purple,
                   label: 'Device',
                   onTap: getImageFromGallery),
               SpeedDialChild(
-                  child: Icon(Icons.add_a_photo),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Icon(Icons.add_a_photo, color: Colors.white),
                   backgroundColor: Colors.purple,
                   label: 'Camera',
                   onTap: getImageFromCamera)
