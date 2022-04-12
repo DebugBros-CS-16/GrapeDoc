@@ -15,11 +15,21 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name =
-        firebaseUser != null ? firebaseUser?.displayName.toString() : "Unknown Name";
-    final email = firebaseUser != null ? firebaseUser?.email.toString() : "Email Not Found";
+    final name = firebaseUser != null
+        ? firebaseUser?.displayName != null || firebaseUser!.displayName == '-'
+        ? firebaseUser!.displayName.toString()
+        : "Name Not Set": "Unknown Name";
+    final email = firebaseUser != null
+        ? firebaseUser!.email != null
+        ? firebaseUser!.email.toString()
+        : "Email Not Set"
+        : "Email Not Found";
     final urlImage =
-        firebaseUser != null ? firebaseUser!.photoURL.toString() : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.business2community.com%2Fsocial-media-articles%2Fimportance-profile-picture-career-01899604&psig=AOvVaw3IjFYBaxIgsUfw6e8WKxHP&ust=1649872081847000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCIipwc2Kj_cCFQAAAAAdAAAAABAD";
+        firebaseUser != null
+            ? firebaseUser!.photoURL != null
+            ? firebaseUser!.photoURL.toString()
+            : "https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+            : "https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png";
     //final urlImage = 'https://www.whatsappimages.in/wp-content/uploads/2021/03/New-Top-Quality-Cute-Girl-Images-For-Whatsapp-Dp-Wallpaper-Download.jpg';
 
     return Drawer(
