@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grapedoc_test/main.dart';
@@ -10,37 +11,44 @@ import 'package:grapedoc_test/screens/SettingScreen.dart';
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 15.0);
 
+  final firebaseUser = FirebaseAuth.instance.currentUser;
+
   @override
   Widget build(BuildContext context) {
-    final name = 'Your Name';
-    final email = 'youremail@gmail.com';
-    final urlImage = 'https://www.whatsappimages.in/wp-content/uploads/2021/03/New-Top-Quality-Cute-Girl-Images-For-Whatsapp-Dp-Wallpaper-Download.jpg';
+    final name =
+        firebaseUser != null ? firebaseUser?.displayName.toString() : "Unknown Name";
+    final email = firebaseUser != null ? firebaseUser?.email.toString() : "Email Not Found";
+    final urlImage =
+        firebaseUser != null ? firebaseUser!.photoURL.toString() : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.business2community.com%2Fsocial-media-articles%2Fimportance-profile-picture-career-01899604&psig=AOvVaw3IjFYBaxIgsUfw6e8WKxHP&ust=1649872081847000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCIipwc2Kj_cCFQAAAAAdAAAAABAD";
+    //final urlImage = 'https://www.whatsappimages.in/wp-content/uploads/2021/03/New-Top-Quality-Cute-Girl-Images-For-Whatsapp-Dp-Wallpaper-Download.jpg';
 
     return Drawer(
       child: Material(
         color: Colors.purple,
         child: ListView(
-          padding: padding,
+          //padding: padding,
           children: [
-            const SizedBox(height: 50.0),
+            //const SizedBox(height: 50.0),
             Container(
-              //padding: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(
+                  top: 30.0, bottom: 40.0),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(5),
+                color: Colors.white.withOpacity(0.15),
+                borderRadius: BorderRadius.circular(5.0)
               ),
-              child: buildHeader(
-                urlImage: urlImage,
-                name: name,
-                email: email,
-                onClicked: () => selectedItem(context, 99)
+              child: Container(
+                //padding: const EdgeInsets.all(20.0),
+                child: buildHeader(
+                    urlImage: urlImage,
+                    name: name.toString(),
+                    email: email.toString(),
+                    onClicked: () => selectedItem(context, 99)),
               ),
             ),
-            const SizedBox(height: 10.0),
-            //const Divider(color: Colors.white70,),
             const SizedBox(height: 20.0),
             Container(
-              //padding: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                 color: Colors.white70.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(5),
@@ -48,25 +56,12 @@ class NavigationDrawerWidget extends StatelessWidget {
               child: buildMenuItem(
                 text: 'Home',
                 icon: Icons.home,
-                onClicked: () => selectedItem(context,0),
+                onClicked: () => selectedItem(context, 0),
               ),
             ),
             const SizedBox(height: 20.0),
             Container(
-              //padding: const EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                color: Colors.white70.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: buildMenuItem(
-                text: 'Profile',
-                icon: Icons.account_circle_sharp,
-                onClicked: () => selectedItem(context,1),
-              ),
-            ),
-            const SizedBox(height: 20.0),
-            Container(
-              //padding: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                 color: Colors.white70.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(5),
@@ -74,12 +69,12 @@ class NavigationDrawerWidget extends StatelessWidget {
               child: buildMenuItem(
                 text: 'Settings',
                 icon: Icons.settings_sharp,
-                onClicked: () => selectedItem(context,2),
+                onClicked: () => selectedItem(context, 2),
               ),
             ),
             const SizedBox(height: 20.0),
             Container(
-              //padding: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                 color: Colors.white70.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(5),
@@ -87,7 +82,20 @@ class NavigationDrawerWidget extends StatelessWidget {
               child: buildMenuItem(
                 text: 'About us',
                 icon: Icons.info_sharp,
-                onClicked: () => selectedItem(context,3),
+                onClicked: () => selectedItem(context, 3),
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                color: Colors.white70.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: buildMenuItem(
+                text: 'Privacy Policy',
+                icon: Icons.admin_panel_settings_sharp,
+                onClicked: () => selectedItem(context, 1),
               ),
             ),
           ],
@@ -96,55 +104,54 @@ class NavigationDrawerWidget extends StatelessWidget {
     );
   }
 
-  Widget buildHeader({
-    required String urlImage,
-    required String name,
-    required String email,
-    required VoidCallback onClicked
-  }) => InkWell(
-      onTap: onClicked,
-      child: Row(
-        children: [
-          Container(
-            height: 100.0,
-            width: 90.0,
-            child: ClipRRect(
-                borderRadius:
-                BorderRadius.only(
-                  topLeft: Radius.circular(5),
-                  bottomLeft: Radius.circular(5),
-                ),
-                child: CachedNetworkImage(
-                  placeholder: (context, url) =>
-                      Image.asset("assets/images/grapedoclogo.png"),
-                  imageUrl: urlImage,
-                  width: 90,
-                  fit: BoxFit.cover,
-                )
+  Widget buildHeader(
+          {required String urlImage,
+          required String name,
+          required String email,
+          required VoidCallback onClicked}) =>
+      InkWell(
+        onTap: onClicked,
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(bottom: 20.0),
+              height: 100.0,
+              width: 100.0,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) =>
+                        Image.asset("assets/images/grapedoclogo.png"),
+                    imageUrl: urlImage,
+                    //width: 100,
+                    fit: BoxFit.cover,
+                  )),
             ),
-          ),
-          // CircleAvatar(
-          //   radius: 30.0,
-          //   backgroundImage: NetworkImage(urlImage),
-          // ),
-          const SizedBox(width: 20.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: TextStyle(fontSize: 20, color:  Colors.white),
+            // CircleAvatar(
+            //   radius: 30.0,
+            //   backgroundImage: NetworkImage(urlImage),
+            // ),
+            // SizedBox(width:10.0),
+            Text(
+              name,
+              style: TextStyle(
+                fontSize: 22,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
-              const SizedBox(height: 4.0),
-              Text(
-                email,
-                style: TextStyle(fontSize: 14, color:  Colors.white),
+            ),
+            const SizedBox(height: 4.0),
+            Text(
+              email,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.white,
+                fontStyle: FontStyle.italic,
               ),
-            ],
-          )
-        ],
-      ),
-  );
+            )
+          ],
+        ),
+      );
 
   Widget buildMenuItem({
     required String text,
@@ -154,7 +161,10 @@ class NavigationDrawerWidget extends StatelessWidget {
     Color color = Colors.white;
     Color hoverColor = Colors.white38;
     return ListTile(
-      leading: Icon(icon, color: color,),
+      leading: Icon(
+        icon,
+        color: color,
+      ),
       title: Text(text, style: TextStyle(color: color)),
       hoverColor: hoverColor,
       onTap: onClicked,
