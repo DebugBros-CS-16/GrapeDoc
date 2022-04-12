@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grapedoc_test/main.dart';
@@ -7,7 +8,7 @@ import 'package:grapedoc_test/screens/NavBar.dart';
 import 'package:grapedoc_test/screens/SettingScreen.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
-  final padding = const EdgeInsets.symmetric(horizontal: 20.0);
+  final padding = const EdgeInsets.symmetric(horizontal: 15.0);
 
   @override
   Widget build(BuildContext context) {
@@ -22,37 +23,72 @@ class NavigationDrawerWidget extends StatelessWidget {
           padding: padding,
           children: [
             const SizedBox(height: 50.0),
-            buildHeader(
-              urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () => selectedItem(context, 99)
+            Container(
+              //padding: const EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: buildHeader(
+                urlImage: urlImage,
+                name: name,
+                email: email,
+                onClicked: () => selectedItem(context, 99)
+              ),
             ),
-            const SizedBox(height: 24.0),
-            const Divider(color: Colors.white70,),
-            const SizedBox(height: 24.0),
-            buildMenuItem(
-              text: 'Home',
-              icon: Icons.home,
-              onClicked: () => selectedItem(context,0),
+            const SizedBox(height: 10.0),
+            //const Divider(color: Colors.white70,),
+            const SizedBox(height: 20.0),
+            Container(
+              //padding: const EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                color: Colors.white70.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: buildMenuItem(
+                text: 'Home',
+                icon: Icons.home,
+                onClicked: () => selectedItem(context,0),
+              ),
             ),
-            const SizedBox(height: 16.0),
-            buildMenuItem(
-              text: 'Profile',
-              icon: Icons.account_circle_sharp,
-              onClicked: () => selectedItem(context,1),
+            const SizedBox(height: 20.0),
+            Container(
+              //padding: const EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                color: Colors.white70.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: buildMenuItem(
+                text: 'Profile',
+                icon: Icons.account_circle_sharp,
+                onClicked: () => selectedItem(context,1),
+              ),
             ),
-            const SizedBox(height: 16.0),
-            buildMenuItem(
-              text: 'Settings',
-              icon: Icons.settings_sharp,
-              onClicked: () => selectedItem(context,2),
+            const SizedBox(height: 20.0),
+            Container(
+              //padding: const EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                color: Colors.white70.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: buildMenuItem(
+                text: 'Settings',
+                icon: Icons.settings_sharp,
+                onClicked: () => selectedItem(context,2),
+              ),
             ),
-            const SizedBox(height: 16.0),
-            buildMenuItem(
-              text: 'About us',
-              icon: Icons.info_sharp,
-              onClicked: () => selectedItem(context,3),
+            const SizedBox(height: 20.0),
+            Container(
+              //padding: const EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                color: Colors.white70.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: buildMenuItem(
+                text: 'About us',
+                icon: Icons.info_sharp,
+                onClicked: () => selectedItem(context,3),
+              ),
             ),
           ],
         ),
@@ -69,10 +105,28 @@ class NavigationDrawerWidget extends StatelessWidget {
       onTap: onClicked,
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 30.0,
-            backgroundImage: NetworkImage(urlImage),
+          Container(
+            height: 100.0,
+            width: 90.0,
+            child: ClipRRect(
+                borderRadius:
+                BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                  bottomLeft: Radius.circular(5),
+                ),
+                child: CachedNetworkImage(
+                  placeholder: (context, url) =>
+                      Image.asset("assets/images/grapedoclogo.png"),
+                  imageUrl: urlImage,
+                  width: 90,
+                  fit: BoxFit.cover,
+                )
+            ),
           ),
+          // CircleAvatar(
+          //   radius: 30.0,
+          //   backgroundImage: NetworkImage(urlImage),
+          // ),
           const SizedBox(width: 20.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

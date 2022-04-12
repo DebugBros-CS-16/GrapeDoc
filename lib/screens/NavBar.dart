@@ -14,7 +14,7 @@ import 'ChatScreen.dart';
 import 'HomeScreen.dart';
 import 'RegisterScreen.dart';
 
-StreamController<int> streamController = StreamController<int>();
+StreamController<int> streamController = StreamController.broadcast();
 
 class NavBar extends StatefulWidget {
   NavBar(this.index,this.stream);
@@ -116,29 +116,29 @@ class _NavBarState extends State<NavBar> {
           BottomNavyBarItem(
             icon: Icon(Icons.camera_alt_rounded),
             title: Text('Scan'),
-            inactiveColor: Colors.white70,
-            activeColor: Colors.lightBlueAccent,
+            inactiveColor: Colors.white38,
+            activeColor: Colors.white,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.home),
             title: Text('Home'),
-            inactiveColor: Colors.white70,
-            activeColor: Colors.lightBlueAccent,
+            inactiveColor: Colors.white38,
+            activeColor: Colors.white,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.chat),
             title: Text('ChatBot',),
-            inactiveColor: Colors.white70,
-            activeColor: Colors.lightBlueAccent,
+            inactiveColor: Colors.white38,
+            activeColor: Colors.white,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.web),
             title: Text('Blog'),
-            inactiveColor: Colors.white70,
-            activeColor: Colors.lightBlueAccent,
+            inactiveColor: Colors.white38,
+            activeColor: Colors.white,
             textAlign: TextAlign.center,
           ),
         ],
