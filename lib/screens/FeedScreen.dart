@@ -79,17 +79,14 @@ class _FeedScreenState extends State<FeedScreen> {
   }
 
   thumbnail(imageUrl) {
-    return Padding(
-      padding: EdgeInsets.only(left: 15.0),
-      child: CachedNetworkImage(
-        placeholder: (context, url) =>
-            Image.asset("assets/images/grapedoclogo.png"),
-        imageUrl: imageUrl,
-        height: 50,
-        width: 70,
-        alignment: Alignment.center,
-        fit: BoxFit.fill,
-      ),
+    return CachedNetworkImage(
+      placeholder: (context, url) =>
+          Image.asset("assets/images/grapedoclogo.png"),
+      imageUrl: imageUrl,
+      height: 90,
+      width: 70,
+      alignment: Alignment.center,
+      fit: BoxFit.fill,
     );
   }
 
@@ -107,14 +104,30 @@ class _FeedScreenState extends State<FeedScreen> {
       itemBuilder: (BuildContext context, int index) {
         final item = _feed.items![index];
         String? _url = item.link;
-        return ListTile(
-          title: title(item.title),
-          subtitle: subtitle(DateFormat('yyyy-MM-dd - kk:mm')
-              .format(item.pubDate as DateTime)),
-          leading: thumbnail(item.enclosure?.url),
-          trailing: rightIcon(),
-          contentPadding: EdgeInsets.all(5.0),
-          onTap: () => openFeed(_url!),
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(color: Colors.black12),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: ListTile(
+            title: title(item.title),
+            subtitle: subtitle(DateFormat('yyyy MMM dd - kk:mm')
+                .format(item.pubDate as DateTime)),
+            leading: thumbnail(item.enclosure?.url),
+            trailing: rightIcon(),
+            contentPadding: EdgeInsets.all(5.0),
+            onTap: () => openFeed(_url!),
+          ),
         );
       },
     );
