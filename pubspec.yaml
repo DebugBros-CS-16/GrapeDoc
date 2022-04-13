@@ -71,6 +71,7 @@ dependencies:
   webfeed: ^0.7.0
   url_launcher: ^6.0.20
   intl: ^0.17.0
+  webview_flutter: ^3.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -108,6 +109,9 @@ flutter:
     - assets/images/grapesicon.png
     - assets/credentials.json
     - assets/Solutions.json
+
+    #privacy policy statement
+    - assets/PrivacyPolicy.html
 
     #assets to the model
     - assets/ml_model/labels.txt

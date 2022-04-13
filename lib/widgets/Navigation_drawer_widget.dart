@@ -6,6 +6,7 @@ import 'package:grapedoc_test/main.dart';
 import 'package:grapedoc_test/screens/HomeScreen.dart';
 // import 'package:grapedoc_test/screens/AddBlog.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
+import 'package:grapedoc_test/screens/PrivacyPolicyScreen.dart';
 import 'package:grapedoc_test/screens/SettingScreen.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -192,7 +193,7 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => MyHomePage(title: "Profile"),
+          builder: (context) => PrivacyPolicyScreen(),
         ));
         break;
       case 2:
