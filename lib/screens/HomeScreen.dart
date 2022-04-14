@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:grapedoc_test/screens/FeedScreen.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:launch_review/launch_review.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../Services/crud.dart';
@@ -477,6 +478,86 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          Container(
+            height: 260.0,
+            //width: double.infinity,
+            padding:
+            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+            margin:
+            const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+            //color: Colors.blue,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Colors.black12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: Offset(2, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Text(
+                  "Enjoying GrapeDoc?",
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                SizedBox(height: 10.0,),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    //"Your review helps spread the word and grow the GrapeDoc community!",
+                    "We work super hard to make GrapeDoc better for you and We'd love to hear what you have to say about this app. Please take a moment to Rate us.",
+                    style: TextStyle(
+                      fontSize: 14.0,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(height: 10.0,),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(Icons.star,color: Colors.orangeAccent,size: 40.0,),
+                      Icon(Icons.star,color: Colors.orangeAccent,size: 40.0,),
+                      Icon(Icons.star,color: Colors.orangeAccent,size: 40.0,),
+                      Icon(Icons.star,color: Colors.orangeAccent,size: 40.0,),
+                      Icon(Icons.star,color: Colors.orangeAccent,size: 40.0,),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 15.0,),
+                ElevatedButton(
+                  onPressed: (){
+                    LaunchReview.launch(
+                        androidAppId: "com.grapedoc_test"
+                    );
+                  },
+                  child: Text(
+                    "Rate us",
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(200.0, 40.0),
+                    primary: Colors.blue,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
           // Container(
           //   height: 200.0,
           //   width: double.infinity,
