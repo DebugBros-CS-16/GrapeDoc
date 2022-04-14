@@ -21,95 +21,138 @@ class _SettingScreenState extends State<SettingScreen> {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
         ),
         centerTitle: true,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.blue,
         actions: [
           IconButton(
-              onPressed: () {
-                final provider =
-                    Provider.of<SignInProvider>(context, listen: false);
-                provider.logout();
-              },
-              icon: const Icon(Icons.power_settings_new)),
+              onPressed: () {},
+              icon: const Icon(Icons.settings_sharp)),
         ],
       ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
-            const Text(
-              "Settings",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+            // const Text(
+            //   "Settings",
+            //   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+            // ),
+            Container(
+              //margin: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal:15.0,vertical: 20.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: const [
+                      Icon(
+                        Icons.person,
+                        color: Colors.purple,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Text(
+                        "Account",
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  const Divider(
+                    height: 15,
+                    thickness: 2,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  // buildAccountOptionRow(context, "Change password"),
+                  // buildAccountOptionRow(context, "Content settings"),
+                  // buildAccountOptionRow(context, "Social"),
+                  buildAccountOptionRow(context, "Language"),
+                  buildAccountOptionRow(context, "Privacy and Security"),
+                ],
+              ),
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(height: 20.0,),
+            Container(
+              //margin: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal:15.0,vertical: 20.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: const [
+                      Icon(
+                        Icons.volume_up_outlined,
+                        color: Colors.purple,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Text(
+                        "Notifications",
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  const Divider(
+                    height: 15,
+                    thickness: 2,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  buildNotificationOptionRow("New for you", true),
+                  buildNotificationOptionRow("Account activity", true),
+                  buildNotificationOptionRow("Opportunity", false),
+                ],
+              ),
             ),
-            Row(
-              children: const [
-                Icon(
-                  Icons.person,
-                  color: Colors.green,
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Account",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const Divider(
-              height: 15,
-              thickness: 2,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            // buildAccountOptionRow(context, "Change password"),
-            // buildAccountOptionRow(context, "Content settings"),
-            // buildAccountOptionRow(context, "Social"),
-            buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Privacy and Security"),
-            const SizedBox(
-              height: 40,
-            ),
-            Row(
-              children: const [
-                Icon(
-                  Icons.volume_up_outlined,
-                  color: Colors.green,
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Notifications",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const Divider(
-              height: 15,
-              thickness: 2,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
-            const SizedBox(
-              height: 50,
-            ),
+            SizedBox(height: 50.0,),
             Center(
-              child: OutlineButton(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
-                child: const Text("SIGN OUT",
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  minimumSize: Size(150.0, 50.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  primary: Colors.red,
+                  side: BorderSide(width: 2, color: Colors.red),
+                ),
+                onPressed: () {
+                  final provider =
+                  Provider.of<SignInProvider>(context, listen: false);
+                  provider.logout();
+                },
+                child: const Text(
+                    "SIGN OUT",
                     style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
+                        fontSize: 16,
+                    )
+                ),
               ),
             )
           ],
@@ -132,6 +175,7 @@ class _SettingScreenState extends State<SettingScreen> {
         Transform.scale(
             scale: 0.7,
             child: CupertinoSwitch(
+              activeColor: Colors.purple,
               value: isActive,
               onChanged: (bool val) {},
             ))

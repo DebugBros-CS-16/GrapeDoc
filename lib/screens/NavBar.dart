@@ -65,9 +65,9 @@ class _NavBarState extends State<NavBar> {
     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
   );
 
-  NavBarState() {
+  _NavBarState() {
     Future.delayed(
-        const Duration(seconds: 3),
+        const Duration(seconds: 5),
         () => setState(() {
               text = const Text(
                 'Grape Doc',

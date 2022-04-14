@@ -34,10 +34,6 @@ class Routes{
       page: ()=> RegisterScreen(),
     ),
 
-    GetPage(
-      name: Routes.home,
-      page: ()=> MyHomePage(title: "Hello World"),
-    ),
   ];
 
 }
