@@ -8,6 +8,7 @@ import 'package:grapedoc_test/screens/HomeScreen.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
 import 'package:grapedoc_test/screens/PrivacyPolicyScreen.dart';
 import 'package:grapedoc_test/screens/SettingScreen.dart';
+import 'package:launch_review/launch_review.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 15.0);
@@ -107,6 +108,23 @@ class NavigationDrawerWidget extends StatelessWidget {
                 text: 'Privacy Policy',
                 icon: Icons.admin_panel_settings_sharp,
                 onClicked: () => selectedItem(context, 1),
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                color: Colors.white70.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: buildMenuItem(
+                text: 'Rate us',
+                icon: Icons.star,
+                onClicked: () {
+                  LaunchReview.launch(
+                    androidAppId: "com.grapedoc_test",
+                  );
+                },
               ),
             ),
           ],

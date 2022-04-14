@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:grapedoc_test/screens/FeedScreen.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../Services/crud.dart';
 import 'BlogScreen.dart';
@@ -333,12 +334,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               //color: Colors.blue,
               decoration: BoxDecoration(
-                color: Colors.purple,
+                color: Colors.blue,
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.black12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.purple.withOpacity(0.5),
+                    color: Colors.blue.withOpacity(0.5),
                     spreadRadius: 1,
                     blurRadius: 5,
                     offset: Offset(2, 3), // changes position of shadow
@@ -396,12 +397,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               //color: Colors.blue,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.black12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
+                    color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 1,
                     blurRadius: 5,
                     offset: Offset(2, 3), // changes position of shadow
