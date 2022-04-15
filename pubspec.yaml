@@ -76,6 +76,11 @@ dependencies:
   #rate our app
   launch_review: ^3.0.1
 
+  #splash screen
+  flutter_native_splash: ^2.1.5
+
+  #appIcon
+  #flutter_launcher_icons: ^0.9.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -84,6 +89,17 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: ^0.9.2
+
+flutter_icons:
+  android : true
+  ios : true
+  image_path : assets/images/app_icon.png
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/splashlogo2.png
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -110,6 +126,8 @@ flutter:
     - assets/images/google.png
     - assets/images/facebook.png
     - assets/images/grapesicon.png
+    - assets/images/splashlogo2.png
+    - assets/images/app_icon.png
     - assets/credentials.json
     - assets/Solutions.json
 
