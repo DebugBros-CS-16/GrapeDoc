@@ -16,7 +16,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   late WebViewController controller;
 
   void loadHtml() async {
-    final html = await rootBundle.loadString("assets/PrivacyPolicy.html");
+    final html = await rootBundle.loadString("assets/local_html/PrivacyPolicy.html");
 
     final url = Uri.dataFromString(
       html,

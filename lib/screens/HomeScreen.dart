@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,34 +32,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-
-  final html = '''
-  <!DOCTYPE html>
-    <html>
-      <head>
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      </head>
-    <body>
-      <img src="https://www.statista.com/graphic/1/237600/world-grape-production-in-2007-by-region.jpg" alt="Statistic: Grape production worldwide from 2012/2013 to 2021/2022 (in million metric tons) | Statista" style="width: 100%; height: auto !important; max-width:1000px;-ms-interpolation-mode: bicubic;"/>
-      <!--<br />
-      Find more statistics at  <a href="https://www.statista.com" rel="nofollow">Statista </a>-->
-    </body>
-  </html>''';
-
-  late WebViewController controller;
-
-  void loadHtml() async {
-    //final html = await rootBundle.loadString("assets/PrivacyPolicy.html");
-
-    final url = Uri.dataFromString(
-      html,
-      mimeType: 'text/html',
-      encoding: Encoding.getByName('utf-8'),
-    ).toString();
-
-    controller.loadUrl(url);
-  }
+  // late WebViewController controller;
+  //
+  // void loadHtml() async {
+  //   final html = await rootBundle.loadString("assets/local_html/worldwide_grape_production_chart.html");
+  //
+  //   final url = Uri.dataFromString(
+  //     html,
+  //     mimeType: 'text/html',
+  //     encoding: Encoding.getByName('utf-8'),
+  //   ).toString();
+  //
+  //   controller.loadUrl(url);
+  // }
 
   CrudMethods crudMethods = CrudMethods();
   late FirebaseFirestore firestore;
@@ -418,66 +404,66 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Container(
-            height: 350.0,
-            width: double.infinity,
-            margin:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-            //color: Colors.blue,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.black12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: Offset(2, 3), // changes position of shadow
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                SizedBox(height: 15.0,),
-                Text(
-                  "Worldwide Grape Production\n2012/13 to 2021/22",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 10.0,),
-                Container(
-                  height: 240.0,
-                  child: WebView(
-                    javascriptMode: JavascriptMode.unrestricted,
-                    onWebViewCreated: (controller) {
-                      this.controller = controller;
-
-                      loadHtml();
-                    },
-                  ),
-                ),
-                SizedBox(height: 10.0,),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(
-                      "Powered by Statista",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontStyle: FontStyle.italic,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Container(
+          //   height: 350.0,
+          //   width: double.infinity,
+          //   margin:
+          //       const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+          //   //color: Colors.blue,
+          //   decoration: BoxDecoration(
+          //     color: Colors.white,
+          //     borderRadius: BorderRadius.circular(10),
+          //     border: Border.all(color: Colors.black12),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.5),
+          //         spreadRadius: 1,
+          //         blurRadius: 5,
+          //         offset: Offset(2, 3), // changes position of shadow
+          //       ),
+          //     ],
+          //   ),
+          //   child: Column(
+          //     children: [
+          //       SizedBox(height: 15.0,),
+          //       Text(
+          //         "Worldwide Grape Production\n2012/13 to 2021/22",
+          //         style: TextStyle(
+          //           fontSize: 18,
+          //           fontWeight: FontWeight.bold,
+          //         ),
+          //         textAlign: TextAlign.center,
+          //       ),
+          //       SizedBox(height: 10.0,),
+          //       Container(
+          //         height: 240.0,
+          //         child: WebView(
+          //           javascriptMode: JavascriptMode.unrestricted,
+          //           onWebViewCreated: (controller) {
+          //             this.controller = controller;
+          //
+          //             loadHtml();
+          //           },
+          //         ),
+          //       ),
+          //       SizedBox(height: 10.0,),
+          //       Align(
+          //         alignment: Alignment.centerRight,
+          //         child: Container(
+          //           padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          //           child: Text(
+          //             "Powered by Statista",
+          //             style: TextStyle(
+          //               fontSize: 12,
+          //               fontStyle: FontStyle.italic,
+          //             ),
+          //             textAlign: TextAlign.center,
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           Container(
             height: 260.0,
             //width: double.infinity,

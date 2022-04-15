@@ -131,8 +131,9 @@ flutter:
     - assets/credentials.json
     - assets/Solutions.json
 
-    #privacy policy statement
-    - assets/PrivacyPolicy.html
+    #local html pages
+    - assets/local_html/PrivacyPolicy.html
+    - assets/local_html/worldwide_grape_production_chart.html
 
     #assets to the model
     - assets/ml_model/labels.txt
