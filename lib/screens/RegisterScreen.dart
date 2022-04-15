@@ -21,12 +21,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const IconButton(
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation menu',
-          onPressed: null,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(null),
         ),
-        title: const Text('Grape Doc',
+        title: const Text('GrapeDoc',
           style: TextStyle(fontWeight: FontWeight.bold,
               fontSize: 28.0),
         ),
@@ -44,17 +43,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(40),
-                      topLeft: Radius.circular(40))),
+                      topRight: Radius.circular(25),
+                      topLeft: Radius.circular(25))),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               margin: const EdgeInsets.only(top: 200, left: 50, right: 50),
               width: double.infinity,
-              height: 400,
+              height: 380,
               decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: const [
                     BoxShadow(
                         color: Colors.black38, spreadRadius: 0.1, blurRadius: 5)
@@ -67,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         hintText: "Email",
                         prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                            borderRadius: BorderRadius.circular(5))),
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
@@ -90,7 +89,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         prefixIcon: const Icon(Icons.lock),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                            borderRadius: BorderRadius.circular(5))),
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
@@ -113,7 +112,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         prefixIcon: Icon(Icons.lock),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                            borderRadius: BorderRadius.circular(5))),
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(

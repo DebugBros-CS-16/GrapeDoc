@@ -25,8 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
     var provider = Provider.of<SignInProvider>(context, listen: false);
     provider.currentUser.listen((User) {
       if (User != null) {
-        Navigator.of(context)
-            .pushReplacement(MaterialPageRoute(builder: (context) => NavBar(1, streamController.stream)));
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => NavBar(1, streamController.stream)));
       }
     });
     super.initState();
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
               icon: Icon(null),
             ),
             title: const Text(
-              'Grape Doc',
+              'GrapeDoc',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
             ),
             centerTitle: true,
@@ -61,18 +61,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40),
-                          topLeft: Radius.circular(40))),
+                          topRight: Radius.circular(25),
+                          topLeft: Radius.circular(25))),
                 ),
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   margin: const EdgeInsets.only(top: 200, left: 50, right: 50),
                   width: double.infinity,
-                  height: 450,
+                  height: 400,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: const [
                         BoxShadow(
                             color: Colors.black38,
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintText: "Email",
                             prefixIcon: const Icon(Icons.email),
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                                borderRadius: BorderRadius.circular(5))),
                       ),
                       const SizedBox(
                         height: 20,
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             prefixIcon: Icon(Icons.lock),
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                                borderRadius: BorderRadius.circular(5))),
                       ),
                       Align(
                         alignment: Alignment.centerRight,
@@ -146,36 +146,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: const Text("Register?")),
                         ],
                       ),
-                      // InkWell(
-                      //   onTap: () {},
-                      //   child: Container(
-                      //     width: double.infinity,
-                      //     padding: const EdgeInsets.only(left: 15),
-                      //     height: 45,
-                      //     decoration: BoxDecoration(
-                      //         color: Colors.transparent,
-                      //         borderRadius: BorderRadius.circular(10)),
-                      //     child: Row(
-                      //       mainAxisAlignment: MainAxisAlignment.start,
-                      //       children: [
-                      //         Image.asset(
-                      //           "assets/images/google.png",
-                      //           width: 40,
-                      //           height: 40,
-                      //         ),
-                      //         const SizedBox(
-                      //           width: 20,
-                      //         ),
-                      //         const Text(
-                      //           "Sing In With Google ",
-                      //           style: TextStyle(
-                      //               fontWeight: FontWeight.bold, fontSize: 14),
-                      //         )
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
-
+                      Divider(color: Colors.grey.withOpacity(0.4),),
+                      SizedBox(height: 10.0,),
                       SignInButton(Buttons.Google, onPressed: () async {
                         final provider =
                             Provider.of<SignInProvider>(context, listen: false);
