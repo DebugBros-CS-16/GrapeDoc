@@ -10,10 +10,11 @@ import 'package:flutter/services.dart';
 import 'package:grapedoc_test/screens/FeedScreen.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:grapedoc_test/services/crud.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../Services/crud.dart';
+
 import 'BlogScreen.dart';
 import 'CaptureScreen.dart';
 import 'ChatScreen.dart';

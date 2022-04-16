@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:grapedoc_test/Services/crud.dart';
 import 'package:grapedoc_test/screens/AddBlog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:grapedoc_test/services/crud.dart';
 import 'package:readmore/readmore.dart';
 
 class BlogScreen extends StatefulWidget {
