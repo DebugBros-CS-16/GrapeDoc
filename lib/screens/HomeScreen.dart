@@ -382,14 +382,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 30.0,
+                        height: 25.0,
                       ),
                       Text(
                         "Click Here...",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                     ],
@@ -466,7 +466,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //   ),
           // ),
           Container(
-            height: 260.0,
+            height: 274.0,
             //width: double.infinity,
             padding:
             const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),

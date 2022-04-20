@@ -71,8 +71,12 @@ class _NavBarState extends State<NavBar> {
         const Duration(seconds: 5),
         () => setState(() {
               text = const Text(
-                'Grape Doc',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
+                'GrapeDoc',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Salsa',
+                    fontSize: 28.0
+                ),
               );
             }));
   }
