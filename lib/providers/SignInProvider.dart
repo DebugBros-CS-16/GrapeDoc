@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:grapedoc_test/routes/routes.dart';
 import 'package:grapedoc_test/services/AuthService.dart';
 import 'package:grapedoc_test/screens/LoginScreen.dart';
 
@@ -78,7 +79,5 @@ class SignInProvider extends ChangeNotifier {
     // await facebookSignIn.logOut();
     FirebaseAuth.instance.signOut();
     await googleSignIn.signOut();
-    // await facebookSignIn.logOut();
-    Navigator.pop(context!, MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 }

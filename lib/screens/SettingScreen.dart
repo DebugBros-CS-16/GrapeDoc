@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:grapedoc_test/screens/LoginScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:grapedoc_test/providers/SignInProvider.dart';
 
@@ -146,6 +147,8 @@ class _SettingScreenState extends State<SettingScreen> {
                   final provider =
                   Provider.of<SignInProvider>(context, listen: false);
                   provider.logout();
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => LoginScreen()));
                 },
                 child: const Text(
                     "SIGN OUT",

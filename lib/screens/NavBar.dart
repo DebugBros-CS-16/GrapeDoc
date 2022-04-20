@@ -12,6 +12,7 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'BlogScreen.dart';
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
+import 'LoginScreen.dart';
 import 'RegisterScreen.dart';
 
 StreamController<int> streamController = StreamController.broadcast();
@@ -100,6 +101,8 @@ class _NavBarState extends State<NavBar> {
                 final provider =
                 Provider.of<SignInProvider>(context, listen: false);
                 provider.logout();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => LoginScreen()));
               },
               icon: const Icon(Icons.power_settings_new)),
         ],

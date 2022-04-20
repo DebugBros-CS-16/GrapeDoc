@@ -2,6 +2,7 @@
     "data" : [
       {
           "id": "Disease:Black_rot",
+          "Disease": "Black Rot Disease",
           "Cause": "By the fungus Phyllosticta ampelicida. It infects the leaves, leaf stalks and cluster stems. Could cause complete crop loss.",
           "Symptoms": "Irregular spots form on the leaf with a dark outline. ",
           "Solution": "Cultural Practices - For new plantations selecting a cultural location which also allows good air moment. ",
@@ -10,6 +11,7 @@
       },
       {
         "id": "Disease:Black_Measles",
+        "Disease": "Black Measles Disease",
         "Cause": "Mainly caused by the fungus Togninia minima, while other fungi can also play a part.",
         "Symptoms": "Could be caused anytime during the growing season. Main symptom would be a striping on the leaf, which is shown by the discoloration and drying tissue around the main veins. It shows dark red in red varieties and yellow in others.",
         "Solution": "Cultural Control - Good management techniques, which include proper planting, irrigation, and fertility for young vines while avoiding devigorating stresses, both before and after planting, as well as strict sanitization. ",
@@ -17,6 +19,7 @@
       },
       {
         "id": "Disease:Leaf_blight",
+        "Disease": "Leaf blight Disease",
         "Cause": "Severel infection leads to drying and defoliation of leaves.",
         "Symptoms": "The form of dark brown-purplish patches appear on the infected berries, rachis and bunch stalk just below its attachment with the shoots. ",
         "Solution": "Bordeaux mixture (1.0%), Mancozeb (0.2%), Topsin-M (0.1%), Ziram (0.35%) or Captan (0.2%) is to be sprayed alternatively at weekly intervals from Jun-August and again from December until harvest to keep this disease under check ",
@@ -24,6 +27,7 @@
       },
       {
         "id": "Invalid_Input",
+        "Disease": "Invalid Input",
         "Cause": "Please provide a vaild input.",
         "Symptoms": "-",
         "Solution": "-",
@@ -32,6 +36,7 @@
       },
       {
         "id": "Healthy_leaf",
+        "Disease": "Healthy Leaf",
         "Cause": "The detected grape leaf is healthy. For general health and wellness, grape leaves are a good source of nutrients, including vitamins C, E, A, K and B6, plus niacin, iron, fiber, riboflavin, folate, calcium, magnesium, copper and manganese.",
         "Symptoms": "-",
         "Solution": "-",

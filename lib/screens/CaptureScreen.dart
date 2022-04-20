@@ -115,7 +115,7 @@ class _CaptureScreenState extends State<CaptureScreen> {
 
       Map<String, String> lastScanMap = {
         "imgUrl": downloadUrl,
-        "title": category!.label,
+        "title": diseaseType,
       };
 
       crudMethods.updateScanData(lastScanMap);
@@ -142,7 +142,7 @@ class _CaptureScreenState extends State<CaptureScreen> {
   void getSolutions() async {
     for (var i = 0; i <= _data.length-1; i++) {
       if ((category!.label) == _data[i]["id"]) {
-        diseaseType = _data[i]["id"];
+        diseaseType = _data[i]["Disease"];
         cause = _data[i]["Cause"];
         symptoms = _data[i]["Symptoms"];
         solution = _data[i]["Solution"];
