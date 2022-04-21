@@ -71,6 +71,7 @@ class _AddBlogState extends State<AddBlog> {
           "title": title,
           "desc": desc,
           "datetime": now,
+          "approved": false,
         };
 
         crudMethods.addData(blogMap).then((result) => {
