@@ -64,10 +64,13 @@ class _AddBlogState extends State<AddBlog> {
 
         print("this is url $downloadUrl");
 
-        Map<String, String> blogMap = {
+        DateTime now = DateTime.now();
+
+        Map<String, dynamic> blogMap = {
           "imgUrl": downloadUrl,
           "title": title,
-          "desc": desc
+          "desc": desc,
+          "datetime": now,
         };
 
         crudMethods.addData(blogMap).then((result) => {

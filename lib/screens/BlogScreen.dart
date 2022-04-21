@@ -29,7 +29,7 @@ class _BlogScreenState extends State<BlogScreen> {
                     height: 10.0,
                   ),
                   StreamBuilder<dynamic>(
-                      stream: firestore.collection('blogs').snapshots(),
+                      stream: firestore.collection('blogs').orderBy("datetime").snapshots(),
                       builder: (context, snapshot) {
                         if (!snapshot.hasData)
                           return Center(
