@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             title: const Text(
               'GrapeDoc',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
+              style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Salsa', fontSize: 28.0),
             ),
             centerTitle: true,
             backgroundColor: Colors.purple,

@@ -27,6 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
         title: const Text('GrapeDoc',
           style: TextStyle(fontWeight: FontWeight.bold,
+              fontFamily: 'Salsa',
               fontSize: 28.0),
         ),
         centerTitle: true,
