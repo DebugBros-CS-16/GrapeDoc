@@ -112,10 +112,12 @@ class _CaptureScreenState extends State<CaptureScreen> {
       var downloadUrl = await (await task).ref.getDownloadURL();
 
       print("this is url$downloadUrl");
+      DateTime now = DateTime.now();
 
-      Map<String, String> lastScanMap = {
+      Map<String, dynamic> lastScanMap = {
         "imgUrl": downloadUrl,
         "title": diseaseType,
+        "datetime" : now,
       };
 
       crudMethods.updateScanData(lastScanMap);

@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   margin: const EdgeInsets.only(top: 200, left: 50, right: 50),
                   width: double.infinity,
-                  height: 400,
+                  height: 420,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
