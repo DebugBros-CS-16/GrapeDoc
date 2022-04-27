@@ -267,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-                      Icon(Icons.camera_alt_rounded,color: Colors.black,),
+                      Icon(Icons.camera_alt_rounded,color: Colors.purple,),
                       Text("Scan", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -298,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-                      Icon(Icons.chat_rounded,color: Colors.black,),
+                      Icon(Icons.chat_rounded,color: Colors.purple,),
                       Text("Chat", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -329,7 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-                      Icon(Icons.web,color: Colors.black,),
+                      Icon(Icons.web,color: Colors.purple,),
                       Text("Blog", style: TextStyle(color: Colors.black),)
                     ],
                   ),
