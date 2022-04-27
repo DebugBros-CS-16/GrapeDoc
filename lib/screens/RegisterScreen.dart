@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -124,47 +125,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           backgroundColor: Colors.purple,
                           padding: const EdgeInsets.symmetric(horizontal: 80)),
                       onPressed: () {
-                        print("0000000000");
                         controller.registerUser();
                       },
-                      // {
-                      //   if (controller.password.text != controller.passwordretype.text) {
-                      //     showDialog(
-                      //         context: context,
-                      //         builder: (context) {
-                      //           return AlertDialog(
-                      //             title: const Text("Message"),
-                      //             content: const Text(
-                      //                 "Your Enter Password Do Not Match Each Other"),
-                      //             actions: [
-                      //               TextButton(
-                      //                   onPressed: () {
-                      //                     Navigator.pop(context);
-                      //                   },
-                      //                   child: const Text("OK"))
-                      //             ],
-                      //           );
-                      //         });
-                      //   } else {
-                      //     Navigator.push(
-                      //         context,
-                      //         MaterialPageRoute(
-                      //             builder: (context) => const LoginScreen()));
-                      //   }
-                      // },
-                      child: const Text("Register")),
+                      child: const Text("Register")
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Already have an account?"),
+                      const Text("Already have an account?", style: TextStyle(fontSize: 12.0),),
                       TextButton(
+                          style: TextButton.styleFrom(
+                            minimumSize: Size.zero,
+                            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                          ),
                           onPressed: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const LoginScreen()));
                           },
-                          child: const Text("Login"))
+                          child: const Text("Login",style: TextStyle(fontSize: 12.0),))
                     ],
                   )
                 ],

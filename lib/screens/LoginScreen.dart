@@ -134,8 +134,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have an account"),
+                          const Text("Don't have an account ?",style: TextStyle(fontSize: 12.0),),
                           TextButton(
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -143,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         builder: (context) =>
                                             const RegisterScreen()));
                               },
-                              child: const Text("Register?")),
+                              child: const Text("Register",style: TextStyle(fontSize: 12.0),)),
                         ],
                       ),
                       Divider(color: Colors.grey.withOpacity(0.4),),
