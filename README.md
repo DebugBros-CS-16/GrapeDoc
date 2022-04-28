@@ -11,4 +11,4 @@ The GrapeDoc Apk is published in Github under the realeses, so you can easily na
 
 ## Description
 <p align="center"> 
-<img src="https://user-images.githubusercontent.com/85722491/165746939-7f372349-d28c-460b-aa2f-1f636e387435.png" with="800" height="500" /></p>
+<img src="https://user-images.githubusercontent.com/85722491/165746939-7f372349-d28c-460b-aa2f-1f636e387435.png" with="600" height="400" /></p>
