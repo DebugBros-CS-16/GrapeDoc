@@ -1,6 +1,6 @@
 # GrapeDoc
 <p align="center"> 
-<img src="https://user-images.githubusercontent.com/85722491/165745801-97bd9ee3-fe7f-44cd-b857-e3458c6c562e.png" with="600" height="400" /></p>
+<img src="https://user-images.githubusercontent.com/85722491/165746367-82d9144a-a98c-41cc-a269-def992e7371d.png" with="600" height="400" /></p>
 A mobile application that assists farmers in detecting grape leaf diseases and increasing their revenues through improved insights.
 
 ## DebugBros Team
@@ -11,4 +11,4 @@ The GrapeDoc Apk is published in Github under the realeses, so you can easily na
 
 ## Description
 
-<img src="https://user-images.githubusercontent.com/85722491/165746109-2749086d-2606-4da6-bc81-2c4540290455.png" with="600" height="400" />
+<img src="https://user-images.githubusercontent.com/85722491/165746939-7f372349-d28c-460b-aa2f-1f636e387435.png" with="600" height="400" />
