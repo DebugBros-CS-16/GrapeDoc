@@ -8,3 +8,5 @@ We are a group of four people who work together to create this fantastic app. We
 
 ## Installation Guidelines
 The GrapeDoc Apk is published in Github under the realeses, so you can easily navigate and get the most recent version.
+
+## Description
