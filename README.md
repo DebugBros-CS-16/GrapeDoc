@@ -10,5 +10,5 @@ We are a group of four people who work together to create this fantastic app. We
 The GrapeDoc Apk is published in Github under the realeses, so you can easily navigate and get the most recent version.
 
 ## Description
-
-<img src="https://user-images.githubusercontent.com/85722491/165746939-7f372349-d28c-460b-aa2f-1f636e387435.png" with="600" height="400" />
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/85722491/165746939-7f372349-d28c-460b-aa2f-1f636e387435.png" with="600" height="400" /></p>
