@@ -1,0 +1,5 @@
+Disease:Black_Measles
+Disease:Black_rot
+Disease:Leaf_blight
+Healthy_leaf
+Invalid_Input
