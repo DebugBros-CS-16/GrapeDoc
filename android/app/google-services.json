@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "783352955735",
+    "project_id": "grapedoctest",
+    "storage_bucket": "grapedoctest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783352955735:android:0d2e0600a8a9418365f412",
+        "android_client_info": {
+          "package_name": "com.grapedoc_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783352955735-bod0g686jo8eajj0thrle0a04urr2m2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grapedoc_test",
+            "certificate_hash": "3792eab523781363f1f8bd8b846c559da23e6736"
+          }
+        },
+        {
+          "client_id": "783352955735-m6enpqisenr8o1e9kqnnvkofl44ljpgd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYd96ivgmaq652xM3CE3rqmp-xF5PGxXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783352955735-m6enpqisenr8o1e9kqnnvkofl44ljpgd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
