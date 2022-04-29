@@ -25,7 +25,7 @@ void main () {
     emailTest.text = "";
     final testMessage = pwLength();
     testMessage.validLength(passwordTest,emailTest);
-    expect(testMessage.messageTest, "Passwords must be at least 6 characters long & Username cannot be empty");
+    expect(testMessage.messageTest, "Passwords must be at least 6 characters long & Email cannot be empty");
 
   });
 

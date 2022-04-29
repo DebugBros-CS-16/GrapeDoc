@@ -13,11 +13,11 @@ class matchPw {
 
   passwordMatch(TextEditingController password, TextEditingController passwordretype) {
     if (password.text == passwordretype.text) {
-      // message = "Password Match";
+      message = "Passwords match";
       return "Passwords match";
     }else{
-      // message = "Password Mismatch";
-      return "Passwords Mismatch";
+      message = "Passwords does not match";
+      return "Passwords does not match";
     }
   }
 }
@@ -29,10 +29,10 @@ class pwLength{
 
   validLength(TextEditingController passwordTest, TextEditingController emailTest){
     if (password.text.length >= 6 && email.text.isNotEmpty){
-      // messageTest = "valid password";
+      messageTest = "valid password";
       return "valid password";
     }else{
-      // messageTest = "Passwords must be at least 6 characters long & Username cannot be empty";
+      messageTest = "Passwords must be at least 6 characters long & Email cannot be empty";
       return "Passwords must be at least 6 characters long & Email cannot be empty";
     }
   }

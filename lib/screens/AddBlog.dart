@@ -176,7 +176,6 @@ class _AddBlogState extends State<AddBlog> {
 
               });
 
-              // if(title!="") {
                 // if (title=="") {
                 //   final snackBar = SnackBar(
                 //     content: const Text("Please enter title"),
