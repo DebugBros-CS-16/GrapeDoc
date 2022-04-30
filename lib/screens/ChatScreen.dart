@@ -2,21 +2,16 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-<<<<<<< HEAD
-=======
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
->>>>>>> unit_test
 import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
 import 'package:dialogflow_grpc/dialogflow_grpc.dart';
 import 'package:dialogflow_grpc/generated/google/cloud/dialogflow/v2beta1/session.pb.dart';
 
-// TODO import Dialogflow
+// import Dialogflow
 late DialogflowGrpcV2Beta1 dialogflow;
 
-<<<<<<< HEAD
-=======
 @visibleForTesting
 class chatBotInvalidInput {
   String textTest = "";
@@ -49,7 +44,6 @@ class chatBotInvalidInput {
   }
 }
 
->>>>>>> unit_test
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
@@ -61,10 +55,6 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = TextEditingController();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> unit_test
   bool _isRecording = false;
 
   final RecorderStream _recorder = RecorderStream();
@@ -72,7 +62,7 @@ class _ChatScreenState extends State<ChatScreen> {
   late StreamSubscription<List<int>> _audioStreamSubscription;
   late BehaviorSubject<List<int>> _audioStream;
 
-  // TODO DialogflowGrpc class instance
+  // DialogflowGrpc class instance
   late DialogflowGrpcV2Beta1 dialogflow;
 
   @override
@@ -103,8 +93,6 @@ class _ChatScreenState extends State<ChatScreen> {
     ]);
 
 
-
-    // TODO Get a Service account
     // Get a Service account
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/credentials.json')));
@@ -120,45 +108,29 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void handleSubmitted(text) async {
-<<<<<<< HEAD
     print(text);
     _textController.clear();
 
-    //TODO Dialogflow Code
-    ChatMessage message = ChatMessage(
-      text: text,
-      name: "You",
-      type: true,
-    );
-
-    setState(() {
-      _messages.insert(0, message);
-    });
-=======
-      print(text);
-      _textController.clear();
-
-    //TODO Dialogflow Code
-      if(text!="") {
-        ChatMessage message = ChatMessage(
-          text: text,
-          name: "You",
-          type: true,
-        );
-        // final chatBotInvalidInput invalidInput = new chatBotInvalidInput();
+    //Dialogflow Code
+    if(text!="") {
+      ChatMessage message = ChatMessage(
+        text: text,
+        name: "You",
+        type: true,
+      );
+      // final chatBotInvalidInput invalidInput = new chatBotInvalidInput();
 
 
-        setState(() {
-          _messages.insert(0, message);
-        });
-      }
-      else{
-        final chatBotInvalidInput input = new chatBotInvalidInput();
-        setState(() {
-          _messages.insert(0, input.invalidInput(text));
-        });
-      }
->>>>>>> unit_test
+      setState(() {
+        _messages.insert(0, message);
+      });
+    }
+    else{
+      final chatBotInvalidInput input = new chatBotInvalidInput();
+      setState(() {
+        _messages.insert(0, input.invalidInput(text));
+      });
+    }
 
     DetectIntentResponse data = await dialogflow.detectIntent(text, 'en-US');
     String fulfillmentText = data.queryResult.fulfillmentText;
@@ -172,8 +144,6 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {
         _messages.insert(0, botMessage);
       });
-<<<<<<< HEAD
-=======
     }else{
       //reply of bot when user sends a null message
       String invalidText = "Please enter message";
@@ -185,7 +155,6 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {
         _messages.insert(0, botMessage);
       });
->>>>>>> unit_test
     }
 
   }
@@ -200,7 +169,7 @@ class _ChatScreenState extends State<ChatScreen> {
     });
 
 
-    // TODO Create SpeechContexts
+    // Create SpeechContexts
     // Create an audio InputConfig
     var biasList = SpeechContextV2Beta1(
         phrases: [
@@ -281,9 +250,9 @@ class _ChatScreenState extends State<ChatScreen> {
           )),
       //const Divider(height: 1.0),
       Container(
-        margin: const EdgeInsets.only(left: 10.0,top: 10.0,right: 10.0,bottom: 10.0),
+          margin: const EdgeInsets.only(left: 10.0,top: 10.0,right: 10.0,bottom: 10.0),
           decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
+            color: Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.black12),
             boxShadow: [
@@ -313,11 +282,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     margin: const EdgeInsets.symmetric(horizontal: 4.0),
                     child: IconButton(
                       icon: const Icon(Icons.send),
-<<<<<<< HEAD
                       onPressed: () => handleSubmitted(_textController.text),
-=======
-                      onPressed: () => handleSubmitted(_textController.text) ,
->>>>>>> unit_test
                     ),
                   ),
                   IconButton(
