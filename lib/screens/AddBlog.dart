@@ -15,11 +15,6 @@ class AddBlog extends StatefulWidget {
   _AddBlogState createState() => _AddBlogState();
 }
 
-<<<<<<< HEAD
-class _AddBlogState extends State<AddBlog> {
-
-  late String title, desc;
-=======
 class validBlog {
    TextEditingController titleTest =TextEditingController();
    TextEditingController descriptionTest =TextEditingController();
@@ -49,7 +44,6 @@ class _AddBlogState extends State<AddBlog> {
   final _text2 = TextEditingController();
 
   final validBlog input = new validBlog();
->>>>>>> unit_test
 
   File? selectedImage;
   bool _isLoading = false;
@@ -58,10 +52,7 @@ class _AddBlogState extends State<AddBlog> {
   Future getImage() async{
     ImagePicker picker = ImagePicker();
     final image = await picker.pickImage(source: ImageSource.gallery);
-<<<<<<< HEAD
     // var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-=======
->>>>>>> unit_test
 
     setState(() {
       selectedImage = File(image!.path);
@@ -70,21 +61,6 @@ class _AddBlogState extends State<AddBlog> {
 
   Future uploadBlog() async{
     if(selectedImage != null){
-<<<<<<< HEAD
-
-      setState(() {
-        _isLoading = true;
-      });
-
-      ////uploading image to firebase storage
-
-
-      // try{
-      //   await firebase_storage.FirebaseStorage.instance
-      //       .ref()
-      //       .putFile()
-      // }on
-=======
       if(title != "") {
         if(desc != "") {
 
@@ -99,7 +75,6 @@ class _AddBlogState extends State<AddBlog> {
       // else {
       //   titleTest = "Please enter title";
       // }
->>>>>>> unit_test
 
       firebase_storage.Reference firebaseStorage = firebase_storage.FirebaseStorage.instance
           .ref()
@@ -111,15 +86,12 @@ class _AddBlogState extends State<AddBlog> {
             .ref().child("images/${randomAlphaNumeric(9)}.jpg")
             .putFile(selectedImage!);
 
-<<<<<<< HEAD
         //final StorageUploadTask task = reference.putFile(selectedImage);
-=======
->>>>>>> unit_test
+
         var downloadUrl = await (await task).ref.getDownloadURL();
 
         print("this is url $downloadUrl");
 
-<<<<<<< HEAD
         DateTime now = DateTime.now();
 
         Map<String, dynamic> blogMap = {
@@ -128,24 +100,14 @@ class _AddBlogState extends State<AddBlog> {
           "desc": desc,
           "datetime": now,
           "approved": false,
-=======
-        Map<String, String> blogMap = {
-          "imgUrl": downloadUrl,
-          "title": title,
-          "desc": desc
->>>>>>> unit_test
         };
 
         crudMethods.addData(blogMap).then((result) => {
           Navigator.pop(context)
         });
 
-
       } on firebase_core.FirebaseException catch (e) {
-<<<<<<< HEAD
         // e.g, e.code == 'canceled'
-=======
->>>>>>> unit_test
       }
 
 
@@ -157,10 +119,6 @@ class _AddBlogState extends State<AddBlog> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-=======
-      // key: _scaffoldKey,
->>>>>>> unit_test
       appBar: AppBar(
         title: const Text(
           'Add new blog',
@@ -170,14 +128,6 @@ class _AddBlogState extends State<AddBlog> {
           ),
         ),
         centerTitle: true,
-<<<<<<< HEAD
-        backgroundColor: Colors.lightBlue,
-        actions: [
-          GestureDetector(
-            onTap: (){
-              uploadBlog();
-            },
-=======
         backgroundColor: Colors.blue,
         actions: [
           GestureDetector(
@@ -208,7 +158,6 @@ class _AddBlogState extends State<AddBlog> {
 
             },
 
->>>>>>> unit_test
             child: Container(
                 padding: const EdgeInsets.only(right: 35.0),
                 child: const Icon(Icons.upload_sharp),
@@ -260,28 +209,20 @@ class _AddBlogState extends State<AddBlog> {
               child: Column(
                 children: [
                   TextField(
-<<<<<<< HEAD
-                    decoration: InputDecoration(hintText: 'Title'),
-=======
                     controller: _text,
                     decoration: InputDecoration(
                       hintText: 'Title',
                       errorText: _validate ? input.blogPostTitle(_text) : null,),
->>>>>>> unit_test
                     onChanged: (val){
                       title = val;
                     },
                   ),
                   SizedBox(height: 10.0,),
                   TextField(
-<<<<<<< HEAD
-                    decoration: InputDecoration(hintText: 'Description'),
-=======
                     controller: _text2,
                     decoration: InputDecoration(
                       hintText: 'Description',
                       errorText: _validate ? input.blogPostDescription(_text) : null,),
->>>>>>> unit_test
                     onChanged: (val){
                       desc = val;
                     },
@@ -294,8 +235,6 @@ class _AddBlogState extends State<AddBlog> {
       ),
     );
   }
-<<<<<<< HEAD
-=======
 
   void showInSnackBar(String value, Color bgColor, Color textColor) {
     final snackBar = SnackBar(
@@ -307,5 +246,4 @@ class _AddBlogState extends State<AddBlog> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
   }
->>>>>>> unit_test
 }

@@ -29,14 +29,10 @@ class _BlogScreenState extends State<BlogScreen> {
                     height: 10.0,
                   ),
                   StreamBuilder<dynamic>(
-<<<<<<< HEAD
                       stream: firestore
                           .collection('blogs')
                           .orderBy("datetime", descending: true)
                           .snapshots(),
-=======
-                      stream: firestore.collection('blogs').snapshots(),
->>>>>>> unit_test
                       builder: (context, snapshot) {
                         if (!snapshot.hasData)
                           return Center(
@@ -53,10 +49,7 @@ class _BlogScreenState extends State<BlogScreen> {
                                   title: snapshot.data.docs[index]['title'],
                                   desc: snapshot.data.docs[index]['desc'],
                                   imgUrl: snapshot.data.docs[index]['imgUrl'],
-<<<<<<< HEAD
                                   approved: snapshot.data.docs[index]['approved'],
-=======
->>>>>>> unit_test
                                 );
                               }),
                         );
@@ -83,20 +76,12 @@ class _BlogScreenState extends State<BlogScreen> {
     return Scaffold(
       body: BlogList(),
       floatingActionButton: Align(
-<<<<<<< HEAD
-        alignment: Alignment(0.97, 1.0),
-        child: FloatingActionButton(
-          backgroundColor: Colors.blue,
-          child: Icon(Icons.add),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-=======
         alignment: Alignment(0.97,1.0),
         child: FloatingActionButton(
           backgroundColor: Colors.blue,
           child: Icon(Icons.add),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5)),
->>>>>>> unit_test
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => AddBlog()));
@@ -109,16 +94,12 @@ class _BlogScreenState extends State<BlogScreen> {
 
 class BlogsTile extends StatelessWidget {
   String imgUrl, title, desc;
-<<<<<<< HEAD
   bool approved;
   BlogsTile(
       {required this.imgUrl,
       required this.title,
       required this.desc,
       required this.approved});
-=======
-  BlogsTile({required this.imgUrl, required this.title, required this.desc});
->>>>>>> unit_test
 
   @override
   Widget build(BuildContext context) {
@@ -153,11 +134,7 @@ class BlogsTile extends StatelessWidget {
                       ),
                     ),
                     child: Center(
-<<<<<<< HEAD
                       child: const Text('Something went wrong'),
-=======
-                      child: const Text('No Last Scans Found'),
->>>>>>> unit_test
                     ),
                   )
                 : Container(
@@ -220,7 +197,6 @@ class BlogsTile extends StatelessWidget {
                           fontSize: 15,
                         ),
                       ),
-<<<<<<< HEAD
                     )),
                 SizedBox(
                   height: 5.0,
@@ -252,10 +228,6 @@ class BlogsTile extends StatelessWidget {
                               ),
                             ),
                     )),
-=======
-                    )
-                ),
->>>>>>> unit_test
               ],
             ),
           ),
