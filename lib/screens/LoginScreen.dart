@@ -45,11 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             title: const Text(
               'GrapeDoc',
-<<<<<<< HEAD
               style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Salsa', fontSize: 28.0),
-=======
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
->>>>>>> unit_test
             ),
             centerTitle: true,
             backgroundColor: Colors.purple,
@@ -70,14 +66,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   margin: const EdgeInsets.only(top: 200, left: 50, right: 50),
                   width: double.infinity,
-<<<<<<< HEAD
                   height: 420,
-=======
-                  height: 400,
->>>>>>> unit_test
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -130,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.purple,
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 80)),
+                              const EdgeInsets.symmetric(horizontal: 80)),
                           onPressed: () {
                             controller.login(context);
                           },
@@ -142,36 +134,27 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-<<<<<<< HEAD
                           const Text("Don't have an account ?",style: TextStyle(fontSize: 12.0),),
                           TextButton(
                               style: TextButton.styleFrom(
                                 minimumSize: Size.zero,
                                 padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
                               ),
-=======
-                          const Text("Don't have an account"),
-                          TextButton(
->>>>>>> unit_test
                               onPressed: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const RegisterScreen()));
+                                        const RegisterScreen()));
                               },
-<<<<<<< HEAD
                               child: const Text("Register",style: TextStyle(fontSize: 12.0),)),
-=======
-                              child: const Text("Register?")),
->>>>>>> unit_test
                         ],
                       ),
                       Divider(color: Colors.grey.withOpacity(0.4),),
                       SizedBox(height: 10.0,),
                       SignInButton(Buttons.Google, onPressed: () async {
                         final provider =
-                            Provider.of<SignInProvider>(context, listen: false);
+                        Provider.of<SignInProvider>(context, listen: false);
                         provider.googleLogin();
                       }),
 

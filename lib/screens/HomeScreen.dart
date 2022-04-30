@@ -24,7 +24,7 @@ class HomeScreen extends StatefulWidget {
   //final int index;
   //final Stream<int> stream;
   //StreamController<int> streamController = StreamController<int>();
-  
+
   //HomeScreen(this.index,this.stream);
 
   @override
@@ -191,41 +191,41 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 child: imgUrl == null
                                     ? Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10.0),
-                                        height: 250.0,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        decoration: BoxDecoration(
-                                          color: Colors.black12,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child:  Center(
-                                            child: const Text(
-                                                'No Last Scans Found')))
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 10.0),
+                                    height: 250.0,
+                                    width:
+                                    MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black12,
+                                      borderRadius:
+                                      BorderRadius.circular(10),
+                                    ),
+                                    child:  Center(
+                                        child: const Text(
+                                            'No Last Scans Found')))
                                     : Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10.0),
-                                        height: 250.0,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: _isLoading
-                                              ? CachedNetworkImage(
-                                            placeholder: (context, url) =>
-                                                Image.asset("assets/images/grapedoclogo.png"),
-                                            imageUrl: imgUrl,
-                                            width: MediaQuery.of(context).size.width,
-                                            fit: BoxFit.cover,
-                                          )
-                                              : Center(
-                                                  child:
-                                                      CircularProgressIndicator()),
-                                        ),
-                                      ),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
+                                  height: 250.0,
+                                  width:
+                                  MediaQuery.of(context).size.width,
+                                  child: ClipRRect(
+                                    borderRadius:
+                                    BorderRadius.circular(10),
+                                    child: _isLoading
+                                        ? CachedNetworkImage(
+                                      placeholder: (context, url) =>
+                                          Image.asset("assets/images/grapedoclogo.png"),
+                                      imageUrl: imgUrl,
+                                      width: MediaQuery.of(context).size.width,
+                                      fit: BoxFit.cover,
+                                    )
+                                        : Center(
+                                        child:
+                                        CircularProgressIndicator()),
+                                  ),
+                                ),
                               ),
                             ],
                           );
@@ -267,11 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-<<<<<<< HEAD
-                      Icon(Icons.camera_alt_rounded,color: Colors.purple,),
-=======
                       Icon(Icons.camera_alt_rounded,color: Colors.black,),
->>>>>>> unit_test
                       Text("Scan", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -302,11 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-<<<<<<< HEAD
-                      Icon(Icons.chat_rounded,color: Colors.purple,),
-=======
                       Icon(Icons.chat_rounded,color: Colors.black,),
->>>>>>> unit_test
                       Text("Chat", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -337,11 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-<<<<<<< HEAD
-                      Icon(Icons.web,color: Colors.purple,),
-=======
                       Icon(Icons.web,color: Colors.black,),
->>>>>>> unit_test
                       Text("Blog", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -361,9 +349,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 150.0,
               width: double.infinity,
               padding:
-                  const EdgeInsets.only(left: 20.0, top: 20.0, bottom: 20.0),
+              const EdgeInsets.only(left: 20.0, top: 20.0, bottom: 20.0),
               margin:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               //color: Colors.blue,
               decoration: BoxDecoration(
                 color: Colors.blue,
@@ -394,22 +382,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-<<<<<<< HEAD
                         height: 25.0,
-=======
-                        height: 30.0,
->>>>>>> unit_test
                       ),
                       Text(
                         "Click Here...",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24.0,
-<<<<<<< HEAD
                           fontWeight: FontWeight.w800,
-=======
-                          fontWeight: FontWeight.w700,
->>>>>>> unit_test
                         ),
                       ),
                     ],
@@ -486,11 +466,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //   ),
           // ),
           Container(
-<<<<<<< HEAD
             height: 274.0,
-=======
-            height: 260.0,
->>>>>>> unit_test
             //width: double.infinity,
             padding:
             const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
