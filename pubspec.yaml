@@ -85,10 +85,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-<<<<<<< HEAD
   font_awesome_flutter: ^9.0.0
-=======
->>>>>>> unit_test
 
 dev_dependencies:
   flutter_test:
@@ -100,11 +97,8 @@ flutter_icons:
   android : true
   ios : true
   image_path : assets/images/app_icon.png
-<<<<<<< HEAD
   adaptive_icon_background : "#ffffff"
   adaptive_icon_foreground : assets/images/app_icon.png
-=======
->>>>>>> unit_test
 
 flutter_native_splash:
   color: "#ffffff"
@@ -159,7 +153,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-<<<<<<< HEAD
+
   fonts:
     - family: Salsa
       fonts:
@@ -167,14 +161,13 @@ flutter:
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
-=======
+
   # fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
->>>>>>> unit_test
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
