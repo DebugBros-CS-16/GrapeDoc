@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
 import 'package:dialogflow_grpc/dialogflow_grpc.dart';
@@ -190,8 +187,8 @@ class _ChatScreenState extends State<ChatScreen> {
         speechContexts: [biasList]
     );
 
-    // TODO Make the streamingDetectIntent call, with the InputConfig and the audioStream
-    // TODO Get the transcript and detectedIntent and show on screen
+    // Make the streamingDetectIntent call, with the InputConfig and the audioStream
+    // Get the transcript and detectedIntent and show on screen
 
     final responseStream = dialogflow.streamingDetectIntent(config, _audioStream);
     // Get the transcript and detectedIntent and show on screen
