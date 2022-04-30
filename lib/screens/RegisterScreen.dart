@@ -136,6 +136,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 80)),
                       onPressed: () {
                         controller.registerUser();
+
+                        setState(() {
+                          // _text.text.isEmpty ? _validate = true : _validate = false;
+                          // showInSnackBar("Blog Added successfully");
+                          controller.registerUser();
+
+                          // RegisterUser.registerUser();
+                          // showInSnackBar("Passwords does not match");
+                          print(controller.password.text);
+                          print(controller.passwordretype.text);
+                          // displayMessage = RegisterUser.message.toString();
+                          // print(displayMessage);
+                          // if(RegisterUser.password.text != RegisterUser.passwordretype.text) {
+                          print(controller.email.text);
+                          print(controller.output);
+                          if(controller.email.text=="") {
+                            showInSnackBar2(controller.output);
+                          }else if(controller.password.text != controller.passwordretype.text){
+                            showInSnackBar(controller.output);
+                          }else if((controller.password.text.length < 6) || (controller.passwordretype.text.length < 6)){
+                            showInSnackBar3(controller.output);
+                          }
+                          // if(RegisterScreen.)
+                          // } else{
+                          //   showInSnackBar("Passwords does not match");
+
+                        });
+
                       },
                       child: const Text("Register")
                   ),

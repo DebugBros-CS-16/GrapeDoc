@@ -19,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final LoginController controller = Get.put(LoginController());
   bool hide = true;
+  var email = "", password = "";
 
   @override
   void initState() {
@@ -88,6 +89,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             prefixIcon: const Icon(Icons.email),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5))),
+                        onChanged: (val){
+                          email = val;
+                        },
                       ),
                       const SizedBox(
                         height: 20,
@@ -110,6 +114,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             prefixIcon: Icon(Icons.lock),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5))),
+                        onChanged: (val){
+                          password = val;
+                        },
                       ),
                       Align(
                         alignment: Alignment.centerRight,
@@ -125,10 +132,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               const EdgeInsets.symmetric(horizontal: 80)),
                           onPressed: () {
                             controller.login(context);
-                            if(controller.email == ""){
+                            if(email == ""){
                               showInSnackBar("Email cannot be empty!", Color(0xFF323232), Colors.white);
                             }
-                            else if(controller.password==""){
+                            else if(password==""){
                               showInSnackBar("Password cannot be empty!", Color(0xFF323232), Colors.white);
                             }
                           },
