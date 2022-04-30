@@ -37,7 +37,10 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: 'GrapeDoc',
           theme: ThemeData(
+<<<<<<< HEAD
             fontFamily: 'OpenSans',
+=======
+>>>>>>> unit_test
             primarySwatch: Colors.purple,
           ),
           home: const LoginScreen(),

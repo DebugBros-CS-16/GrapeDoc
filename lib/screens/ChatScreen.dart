@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+<<<<<<< HEAD
+=======
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+>>>>>>> unit_test
 import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
 import 'package:dialogflow_grpc/dialogflow_grpc.dart';
@@ -10,6 +15,41 @@ import 'package:dialogflow_grpc/generated/google/cloud/dialogflow/v2beta1/sessio
 // TODO import Dialogflow
 late DialogflowGrpcV2Beta1 dialogflow;
 
+<<<<<<< HEAD
+=======
+@visibleForTesting
+class chatBotInvalidInput {
+  String textTest = "";
+  final List<ChatMessage> chatMessages = <ChatMessage>[];
+  var inputMsg1;
+
+
+
+  invalidInput(String textTest1){
+    if(textTest != "") {
+      inputMsg1 = "valid message";
+      ChatMessage message = ChatMessage(
+        text: inputMsg1,
+        name: "You",
+        type: true,
+      );
+      return message;
+
+    }else{
+      inputMsg1 = "Please enter message";
+      ChatMessage message = ChatMessage(
+        text: inputMsg1,
+        name: "You",
+        type: true,
+      );
+      return message;
+
+    }
+
+  }
+}
+
+>>>>>>> unit_test
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
@@ -21,6 +61,10 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = TextEditingController();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> unit_test
   bool _isRecording = false;
 
   final RecorderStream _recorder = RecorderStream();
@@ -76,6 +120,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void handleSubmitted(text) async {
+<<<<<<< HEAD
     print(text);
     _textController.clear();
 
@@ -89,6 +134,31 @@ class _ChatScreenState extends State<ChatScreen> {
     setState(() {
       _messages.insert(0, message);
     });
+=======
+      print(text);
+      _textController.clear();
+
+    //TODO Dialogflow Code
+      if(text!="") {
+        ChatMessage message = ChatMessage(
+          text: text,
+          name: "You",
+          type: true,
+        );
+        // final chatBotInvalidInput invalidInput = new chatBotInvalidInput();
+
+
+        setState(() {
+          _messages.insert(0, message);
+        });
+      }
+      else{
+        final chatBotInvalidInput input = new chatBotInvalidInput();
+        setState(() {
+          _messages.insert(0, input.invalidInput(text));
+        });
+      }
+>>>>>>> unit_test
 
     DetectIntentResponse data = await dialogflow.detectIntent(text, 'en-US');
     String fulfillmentText = data.queryResult.fulfillmentText;
@@ -102,6 +172,20 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {
         _messages.insert(0, botMessage);
       });
+<<<<<<< HEAD
+=======
+    }else{
+      //reply of bot when user sends a null message
+      String invalidText = "Please enter message";
+      ChatMessage botMessage = ChatMessage(
+        text: invalidText,
+        name: "Bot",
+        type: true,
+      );
+      setState(() {
+        _messages.insert(0, botMessage);
+      });
+>>>>>>> unit_test
     }
 
   }
@@ -229,7 +313,11 @@ class _ChatScreenState extends State<ChatScreen> {
                     margin: const EdgeInsets.symmetric(horizontal: 4.0),
                     child: IconButton(
                       icon: const Icon(Icons.send),
+<<<<<<< HEAD
                       onPressed: () => handleSubmitted(_textController.text),
+=======
+                      onPressed: () => handleSubmitted(_textController.text) ,
+>>>>>>> unit_test
                     ),
                   ),
                   IconButton(

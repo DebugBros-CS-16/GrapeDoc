@@ -267,7 +267,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
+<<<<<<< HEAD
                       Icon(Icons.camera_alt_rounded,color: Colors.purple,),
+=======
+                      Icon(Icons.camera_alt_rounded,color: Colors.black,),
+>>>>>>> unit_test
                       Text("Scan", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -298,7 +302,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
+<<<<<<< HEAD
                       Icon(Icons.chat_rounded,color: Colors.purple,),
+=======
+                      Icon(Icons.chat_rounded,color: Colors.black,),
+>>>>>>> unit_test
                       Text("Chat", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -329,7 +337,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
+<<<<<<< HEAD
                       Icon(Icons.web,color: Colors.purple,),
+=======
+                      Icon(Icons.web,color: Colors.black,),
+>>>>>>> unit_test
                       Text("Blog", style: TextStyle(color: Colors.black),)
                     ],
                   ),
@@ -382,14 +394,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
+<<<<<<< HEAD
                         height: 25.0,
+=======
+                        height: 30.0,
+>>>>>>> unit_test
                       ),
                       Text(
                         "Click Here...",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24.0,
+<<<<<<< HEAD
                           fontWeight: FontWeight.w800,
+=======
+                          fontWeight: FontWeight.w700,
+>>>>>>> unit_test
                         ),
                       ),
                     ],
@@ -466,7 +486,11 @@ class _HomeScreenState extends State<HomeScreen> {
           //   ),
           // ),
           Container(
+<<<<<<< HEAD
             height: 274.0,
+=======
+            height: 260.0,
+>>>>>>> unit_test
             //width: double.infinity,
             padding:
             const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),

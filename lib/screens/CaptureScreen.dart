@@ -112,12 +112,19 @@ class _CaptureScreenState extends State<CaptureScreen> {
       var downloadUrl = await (await task).ref.getDownloadURL();
 
       print("this is url$downloadUrl");
+<<<<<<< HEAD
       DateTime now = DateTime.now();
 
       Map<String, dynamic> lastScanMap = {
         "imgUrl": downloadUrl,
         "title": diseaseType,
         "datetime" : now,
+=======
+
+      Map<String, String> lastScanMap = {
+        "imgUrl": downloadUrl,
+        "title": category!.label,
+>>>>>>> unit_test
       };
 
       crudMethods.updateScanData(lastScanMap);
@@ -144,7 +151,11 @@ class _CaptureScreenState extends State<CaptureScreen> {
   void getSolutions() async {
     for (var i = 0; i <= _data.length-1; i++) {
       if ((category!.label) == _data[i]["id"]) {
+<<<<<<< HEAD
         diseaseType = _data[i]["Disease"];
+=======
+        diseaseType = _data[i]["id"];
+>>>>>>> unit_test
         cause = _data[i]["Cause"];
         symptoms = _data[i]["Symptoms"];
         solution = _data[i]["Solution"];

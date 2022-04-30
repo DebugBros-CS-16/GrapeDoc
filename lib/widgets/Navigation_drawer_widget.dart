@@ -3,7 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grapedoc_test/main.dart';
+<<<<<<< HEAD
 import 'package:grapedoc_test/screens/AboutUsScreen.dart';
+=======
+>>>>>>> unit_test
 import 'package:grapedoc_test/screens/HomeScreen.dart';
 // import 'package:grapedoc_test/screens/AddBlog.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
@@ -82,7 +85,11 @@ class NavigationDrawerWidget extends StatelessWidget {
               child: buildMenuItem(
                 text: 'Settings',
                 icon: Icons.settings_sharp,
+<<<<<<< HEAD
                 onClicked: () => selectedItem(context, 1),
+=======
+                onClicked: () => selectedItem(context, 2),
+>>>>>>> unit_test
               ),
             ),
             const SizedBox(height: 20.0),
@@ -95,7 +102,11 @@ class NavigationDrawerWidget extends StatelessWidget {
               child: buildMenuItem(
                 text: 'About us',
                 icon: Icons.info_sharp,
+<<<<<<< HEAD
                 onClicked: () => selectedItem(context, 2),
+=======
+                onClicked: () => selectedItem(context, 3),
+>>>>>>> unit_test
               ),
             ),
             const SizedBox(height: 20.0),
@@ -108,7 +119,11 @@ class NavigationDrawerWidget extends StatelessWidget {
               child: buildMenuItem(
                 text: 'Privacy Policy',
                 icon: Icons.admin_panel_settings_sharp,
+<<<<<<< HEAD
                 onClicked: () => selectedItem(context, 3),
+=======
+                onClicked: () => selectedItem(context, 1),
+>>>>>>> unit_test
               ),
             ),
             const SizedBox(height: 20.0),
@@ -212,11 +227,16 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
+<<<<<<< HEAD
           builder: (context) => SettingScreen(),
+=======
+          builder: (context) => PrivacyPolicyScreen(),
+>>>>>>> unit_test
         ));
         break;
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
+<<<<<<< HEAD
           builder: (context) => AboutUsScreen(),
         ));
         break;
@@ -224,6 +244,15 @@ class NavigationDrawerWidget extends StatelessWidget {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => PrivacyPolicyScreen(),
         ));
+=======
+          builder: (context) => SettingScreen(),
+        ));
+        break;
+      case 3:
+        // Navigator.of(context).push(MaterialPageRoute(
+        //   builder: (context) => MyHomePage(title: "AboutUs"),
+        // ));
+>>>>>>> unit_test
         break;
       // case 99:
       //   Navigator.of(context).push(MaterialPageRoute(
