@@ -21,7 +21,7 @@ class _SettingScreenState extends State<SettingScreen> {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         actions: [
           IconButton(
               onPressed: () {},

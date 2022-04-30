@@ -6,36 +6,6 @@ import 'LoginScreen.dart';
 import 'package:grapedoc_test/controllers/register_controller.dart';
 
 
-// class matchPw {
-//   var password = TextEditingController();
-//   var passwordretype = TextEditingController();
-//   var message;
-//
-//   passwordMatch(TextEditingController password, TextEditingController passwordretype) {
-//     if (password.text == passwordretype.text) {
-//       // message = "Password Match";
-//       return "Passwords match";
-//     }else{
-//       // message = "Password Mismatch";
-//       return "Passwords Mismatch";
-//     }
-//   }
-// }
-//
-// class pwLength{
-//   var password = TextEditingController();
-//   var email = TextEditingController();
-//   var messageTest;
-//
-//   validLength(TextEditingController emailTest){
-//     if (password.text.length >= 6 && email.text.isNotEmpty){
-//       messageTest = "valid password";
-//     }else{
-//       messageTest = "Passwords must be at least 6 characters long & Username cannot be empty";
-//     }
-//   }
-// }
-
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
@@ -55,15 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   var displayMessage;
   final UserRegister = RegisterController();
 
-
-
-
-  // late String _email;
-  // late String value;
-  //
-  // final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -119,15 +81,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5))),
                     textInputAction: TextInputAction.next,
-                    // validator: (value){
-                    //   if(value!.isEmpty){
-                    //     return "Email cannot be empty";
-                    //   }
-                    //   return null;
-                    // },
-                    // onSaved: (email){
-                    //   _email = email!;
-                    // },
                   ),
                   const SizedBox(
                     height: 20,
@@ -302,7 +255,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       // content: const Text("Passwords does not match"),
       // content: Text(controller.output),
       content: Text(RegisterUser.passwordMatch(controller.password,controller.passwordretype)),
-      backgroundColor: Colors.red,
+      backgroundColor: Color(0xFF323232),
 
       duration: new Duration(seconds: 3),
     );
@@ -318,7 +271,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       // content: const Text("Email cannot be empty"),
       // content: Text(controller.output),
       content: Text(RegisterUser2.validLength(controller.password, controller.email)),
-      backgroundColor: Colors.red,
+      backgroundColor: Color(0xFF323232),
 
       duration: new Duration(seconds: 3),
     );
@@ -332,7 +285,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     final snackBar3 = SnackBar(
       content: Text(controller.output),
-      backgroundColor: Colors.red,
+      backgroundColor: Color(0xFF323232),
 
       duration: new Duration(seconds: 3),
     );

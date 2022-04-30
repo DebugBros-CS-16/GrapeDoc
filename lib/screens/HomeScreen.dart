@@ -354,7 +354,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               //color: Colors.blue,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.indigo,
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.black12),
                 boxShadow: [
@@ -538,7 +538,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(200.0, 40.0),
-                    primary: Colors.blue,
+                    primary: Colors.indigo,
                   ),
                 ),
               ],

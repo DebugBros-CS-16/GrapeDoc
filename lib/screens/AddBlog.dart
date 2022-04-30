@@ -36,10 +36,8 @@ class validBlog {
 }
 
 class _AddBlogState extends State<AddBlog> {
-  //scaffoldKey
-  // final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  late String title, desc;
+  var title = "", desc = "";
   var titleTest;
   bool _validate = false;
   final _text = TextEditingController();
@@ -54,7 +52,6 @@ class _AddBlogState extends State<AddBlog> {
   Future getImage() async{
     ImagePicker picker = ImagePicker();
     final image = await picker.pickImage(source: ImageSource.gallery);
-    // var image = await ImagePicker.pickImage(source: ImageSource.gallery);
 
     setState(() {
       selectedImage = File(image!.path);
@@ -68,47 +65,15 @@ class _AddBlogState extends State<AddBlog> {
 
           setState(() {
             _isLoading = true;
-
           });
-        } else {
-          desc = "Please enter description";
         }
-      } else {
-        titleTest = "Please enter title";
-
-        // final snackBar = SnackBar(
-        //   content: const Text("Please enter title"),
-        //   duration: new Duration(seconds: 3),
-        // );
-        //
-        // setState(() {
-        //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        // });
-
-          // final snackBar = SnackBar(
-          //   content: const Text("Please enter title"),
-          //   duration: new Duration(seconds: 2),
-          // );
-          // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-
-
-        // _scaffoldKey.currentState.showSnackBar(
-        //     SnackBar(
-        //       content: new Text(title),
-        //       duration: new Duration(seconds: 3),
-        //     )
-        // );
+        // else {
+        //   desc = "Please enter description";
+        // }
       }
-
-      ////uploading image to firebase storage
-
-
-      // try{
-      //   await firebase_storage.FirebaseStorage.instance
-      //       .ref()
-      //       .putFile()
-      // }on
+      // else {
+      //   titleTest = "Please enter title";
+      // }
 
       firebase_storage.Reference firebaseStorage = firebase_storage.FirebaseStorage.instance
           .ref()
@@ -120,7 +85,6 @@ class _AddBlogState extends State<AddBlog> {
             .ref().child("images/${randomAlphaNumeric(9)}.jpg")
             .putFile(selectedImage!);
 
-        //final StorageUploadTask task = reference.putFile(selectedImage);
         var downloadUrl = await (await task).ref.getDownloadURL();
 
         print("this is url $downloadUrl");
@@ -137,7 +101,6 @@ class _AddBlogState extends State<AddBlog> {
 
 
       } on firebase_core.FirebaseException catch (e) {
-        // e.g, e.code == 'canceled'
       }
 
 
@@ -159,43 +122,33 @@ class _AddBlogState extends State<AddBlog> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.indigo,
         actions: [
           GestureDetector(
             onTap: (){
-              setState(() {
-                _text.text.isEmpty ? _validate = true : _validate = false;
-                _text2.text.isEmpty ? _validate = true : _validate = false;
-                uploadBlog();
-                if (selectedImage != null) {
-                  showInSnackBar("Blog Added successfully", Color(0xFF323232), Colors.white);
-                  showInSnackBar("!   Approval in progress", Color(0xFF323232), Colors.orange);
+              // setState(() {
+              //   _text.text.isEmpty ? _validate = true : _validate = false;
+              //   _text2.text.isEmpty ? _validate = true : _validate = false;
+              // });
 
-                };
-                // showInSnackBar("Blog Added successfully");
+              if(title == ""){
+                  // showInSnackBar("!   Title cannot be empty", Color(0xFF323232), Colors.white);
+                  showInSnackBar("!   Title cannot be empty", Color(0xFF323232), Colors.white);
+                }else if(desc == ""){
+                  // showInSnackBar("!   Description cannot be empty", Color(0xFF323232), Colors.white);
+                  showInSnackBar("!   Description cannot be empty", Color(0xFF323232), Colors.white);
+                }else if(selectedImage == null){
+                  // showInSnackBar("!   Blog is empty", Color(0xFF323232), Colors.white);
+                  showInSnackBar("!   Please add a picture ", Color(0xFF323232), Colors.white);
+                }
+                if(title!="" && desc!="" && selectedImage!=null) {
+                  uploadBlog();
+                  if (selectedImage != null) {
+                    showInSnackBar("Blog Added successfully", Color(0xFF323232), Colors.white);
+                    showInSnackBar("!   Approval in progress", Color(0xFF323232), Colors.orange);
 
-              });
-
-                // if (title=="") {
-                //   final snackBar = SnackBar(
-                //     content: const Text("Please enter title"),
-                //     duration: new Duration(seconds: 3),
-                //   );
-                //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                // }
-                // setState(() {
-                //   if (title == "");
-                // });
-                // showInSnackBar("SignUp succesfull");
-              // }else {
-              //   final snackBar = SnackBar(
-              //     content: const Text("Please enter title"),
-              //     duration: new Duration(seconds: 2),
-              //   );
-              //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              // }
-
-
+                  };
+                }
 
             },
 
@@ -253,7 +206,6 @@ class _AddBlogState extends State<AddBlog> {
                     controller: _text,
                     decoration: InputDecoration(
                       hintText: 'Title',
-                      // errorText: _validate ? 'Title Can\'t Be Empty' : null,),
                       errorText: _validate ? input.blogPostTitle(_text) : null,),
                     onChanged: (val){
                       title = val;
@@ -288,14 +240,4 @@ class _AddBlogState extends State<AddBlog> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
   }
-  // void showInSnackBar2(String value) {
-  //   final snackBar2 = SnackBar(
-  //     content: Text(),
-  //     backgroundColor: Colors.purple,
-  //
-  //     duration: new Duration(seconds: 3),
-  //   );
-  //   ScaffoldMessenger.of(context).showSnackBar(snackBar2);
-  //
-  // }
 }
