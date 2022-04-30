@@ -122,7 +122,7 @@ class _AddBlogState extends State<AddBlog> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.blue,
         actions: [
           GestureDetector(
             onTap: (){

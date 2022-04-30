@@ -305,7 +305,7 @@ class _CaptureScreenState extends State<CaptureScreen> {
           floatingActionButton: SpeedDial(
             icon: Icons.add,
             animatedIcon: AnimatedIcons.menu_close,
-            backgroundColor: Colors.indigo,
+            backgroundColor: Colors.blue,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5)),
             overlayColor: Colors.black,

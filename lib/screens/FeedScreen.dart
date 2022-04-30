@@ -155,7 +155,7 @@ class _FeedScreenState extends State<FeedScreen> {
       appBar: AppBar(
         title: Text("Discover more..."),
         centerTitle: true,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.blue,
         actions:[
           IconButton(
               onPressed: null,

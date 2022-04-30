@@ -74,7 +74,7 @@ class _BlogScreenState extends State<BlogScreen> {
       floatingActionButton: Align(
         alignment: Alignment(0.97,1.0),
         child: FloatingActionButton(
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.blue,
           child: Icon(Icons.add),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5)),
@@ -177,12 +177,12 @@ class BlogsTile extends StatelessWidget {
                         lessStyle: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.indigo,
+                          color: Colors.blue,
                         ),
                         moreStyle: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.indigo,
+                          color: Colors.blue,
                         ),
                         style: TextStyle(
                           fontSize: 15,
