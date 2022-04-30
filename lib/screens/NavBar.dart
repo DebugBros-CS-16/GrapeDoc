@@ -12,10 +12,7 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'BlogScreen.dart';
 import 'ChatScreen.dart';
 import 'HomeScreen.dart';
-<<<<<<< HEAD
 import 'LoginScreen.dart';
-=======
->>>>>>> unit_test
 import 'RegisterScreen.dart';
 
 StreamController<int> streamController = StreamController.broadcast();
@@ -74,17 +71,12 @@ class _NavBarState extends State<NavBar> {
         const Duration(seconds: 5),
         () => setState(() {
               text = const Text(
-<<<<<<< HEAD
                 'GrapeDoc',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Salsa',
                     fontSize: 28.0
                 ),
-=======
-                'Grape Doc',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
->>>>>>> unit_test
               );
             }));
   }
@@ -113,11 +105,8 @@ class _NavBarState extends State<NavBar> {
                 final provider =
                 Provider.of<SignInProvider>(context, listen: false);
                 provider.logout();
-<<<<<<< HEAD
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => LoginScreen()));
-=======
->>>>>>> unit_test
               },
               icon: const Icon(Icons.power_settings_new)),
         ],

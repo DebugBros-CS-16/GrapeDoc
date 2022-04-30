@@ -125,6 +125,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               const EdgeInsets.symmetric(horizontal: 80)),
                           onPressed: () {
                             controller.login(context);
+                            if(controller.email == ""){
+                              showInSnackBar("Email cannot be empty!", Color(0xFF323232), Colors.white);
+                            }
+                            else if(controller.password==""){
+                              showInSnackBar("Password cannot be empty!", Color(0xFF323232), Colors.white);
+                            }
                           },
                           // async{
                           //   Navigator.push(context,
@@ -206,4 +212,16 @@ class _LoginScreenState extends State<LoginScreen> {
       }),
     );
   }
+
+  void showInSnackBar(String value, Color bgColor, Color textColor) {
+    final snackBar = SnackBar(
+      content: Text(value, style: TextStyle(color: textColor),),
+      backgroundColor: bgColor,
+
+      duration: new Duration(seconds: 3),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+  }
+
 }
