@@ -1,15 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-<<<<<<< HEAD
-=======
 import 'package:flutter/cupertino.dart';
->>>>>>> unit_test
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../routes/routes.dart';
 
-<<<<<<< HEAD
-=======
 @visibleForTesting
 class matchPw {
   var password = TextEditingController();
@@ -57,17 +51,14 @@ class pwLength{
 //   }
 // }
 
->>>>>>> unit_test
+
 class RegisterController extends GetxController {
   final _auth = FirebaseAuth.instance;
   final email = TextEditingController();
   final password = TextEditingController();
   //final username = TextEditingController();
   final passwordretype = TextEditingController();
-<<<<<<< HEAD
-=======
   var output;
->>>>>>> unit_test
 
   registerUser() async {
 
@@ -85,22 +76,6 @@ class RegisterController extends GetxController {
           }
         } catch (e) {
           print(e);
-
-<<<<<<< HEAD
-          Get.snackbar("Error", "Registration Error:" + e.toString());
-          Get.back();
-        }
-      } else {
-        Get.snackbar("Error", "Passwords don't match");
-      }
-    } else {
-      Get.snackbar("Error",
-          "Passwords must be at least 6 characters long & Username cannot be empty",
-          duration: const Duration(seconds: 5));
-    }
-
-  }
-=======
           // Get.snackbar("Error", "Registration Error:" + e.toString());
           Get.back();
         }
@@ -171,5 +146,4 @@ class RegisterController extends GetxController {
   //   Get.snackbar("Error", "Passwords don't match");
   //   return true;
   // }
->>>>>>> unit_test
 }
