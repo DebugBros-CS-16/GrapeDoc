@@ -7,9 +7,9 @@ name: grapedoc_ci
 
 on:
   push:
-    branches: [ Application ]
+    branches: [ main ]
   pull_request:
-    branches: [ Application  ]
+    branches: [ main  ]
 
 jobs:
   build:
