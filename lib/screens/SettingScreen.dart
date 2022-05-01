@@ -79,8 +79,8 @@ class _SettingScreenState extends State<SettingScreen> {
                     height: 10,
                   ),
 
-                  buildAccountOptionRow(context, TKeys.language.translate(context)),
-                  buildAccountOptionRow(context, TKeys.privacy.translate(context)),
+                  buildAccountOptionRow(context, TKeys.language.translate(context), 'BETA','English','සිංහල','தமிழ்'),
+                  buildAccountOptionRow(context, TKeys.privacy.translate(context), '','Option 1','Option 2','Option 3'),
                 ],
               ),
             ),
@@ -186,7 +186,7 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
-  GestureDetector buildAccountOptionRow(BuildContext context, String title) {
+  GestureDetector buildAccountOptionRow(BuildContext context, String title, String subtitle, String op1, String op2, String op3) {
     return GestureDetector(
       onTap: () {
         showDialog(
@@ -196,10 +196,10 @@ class _SettingScreenState extends State<SettingScreen> {
                 title: Text(title),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Text("Option 1"),
-                    Text("Option 2"),
-                    Text("Option 3"),
+                  children:[
+                    Text(op1),
+                    Text(op2),
+                    Text(op3),
                   ],
                 ),
                 actions: [
@@ -217,13 +217,34 @@ class _SettingScreenState extends State<SettingScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey[600],
-              ),
+            Row(
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                SizedBox(width: 10.0,),
+                subtitle != '' ?
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
+                  decoration: BoxDecoration(
+                    //color: Colors.white70.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.purple)
+                  ),
+                  child: Text(
+                    subtitle,
+                    style: TextStyle(
+                      color: Colors.purple,
+                      fontSize: 8.0,
+                    ),
+                  ),
+                ) : Container(),
+              ],
             ),
             const Icon(
               Icons.arrow_forward_ios,
