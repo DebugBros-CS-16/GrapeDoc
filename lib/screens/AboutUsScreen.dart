@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:grapedoc_test/services/t_key.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("About Us"),
+        title: Text(TKeys.us.translate(context)),
         centerTitle: true,
         backgroundColor: Colors.blue,
         actions: [
@@ -74,7 +75,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'GrapeDoc is a mobile application that assists farmers in detecting grape leaf diseases and increasing their revenues through improved insights. Users can get answers to their questions quickly and easily. GrapeDoc ensures consistency and brings everything closer together.',
+                      TKeys.about.translate(context),
                       style: TextStyle(
                         fontSize: 17.0,
                       ),
@@ -105,7 +106,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Developed by',
+                    TKeys.develop.translate(context),
                     style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
@@ -130,7 +131,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Contact Us',
+                    TKeys.contact.translate(context),
                     style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,

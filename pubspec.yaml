@@ -73,6 +73,10 @@ dependencies:
   intl: ^0.17.0
   webview_flutter: ^3.0.2
 
+  #localization
+  flutter_localizations:
+    sdk: flutter
+
   #rate our app
   launch_review: ^3.0.1
 
@@ -133,6 +137,11 @@ flutter:
     - assets/images/app_icon.png
     - assets/credentials.json
     - assets/Solutions.json
+
+      #Localization
+    - lang/en.json
+    - lang/ta.json
+    - lang/si.json
 
     #local html pages
     - assets/local_html/PrivacyPolicy.html

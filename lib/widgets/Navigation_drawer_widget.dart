@@ -9,6 +9,7 @@ import 'package:grapedoc_test/screens/HomeScreen.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
 import 'package:grapedoc_test/screens/PrivacyPolicyScreen.dart';
 import 'package:grapedoc_test/screens/SettingScreen.dart';
+import 'package:grapedoc_test/services/t_key.dart';
 import 'package:launch_review/launch_review.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -67,7 +68,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: buildMenuItem(
-                text: 'Home',
+                text: TKeys.homenav.translate(context),
                 icon: Icons.home,
                 onClicked: () => selectedItem(context, 0),
               ),
@@ -80,7 +81,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: buildMenuItem(
-                text: 'Settings',
+                text: TKeys.settingsnav.translate(context),
                 icon: Icons.settings_sharp,
                 onClicked: () => selectedItem(context, 1),
               ),
@@ -93,7 +94,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: buildMenuItem(
-                text: 'About us',
+                text: TKeys.aboutnav.translate(context),
                 icon: Icons.info_sharp,
                 onClicked: () => selectedItem(context, 2),
               ),
@@ -106,7 +107,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: buildMenuItem(
-                text: 'Privacy Policy',
+                text: TKeys.privacynav.translate(context),
                 icon: Icons.admin_panel_settings_sharp,
                 onClicked: () => selectedItem(context, 3),
               ),
@@ -119,7 +120,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: buildMenuItem(
-                text: 'Rate us',
+                text: TKeys.ratenav.translate(context),
                 icon: Icons.star,
                 onClicked: () {
                   LaunchReview.launch(

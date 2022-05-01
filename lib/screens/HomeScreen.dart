@@ -11,6 +11,7 @@ import 'package:grapedoc_test/screens/FeedScreen.dart';
 import 'package:grapedoc_test/screens/NavBar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:grapedoc_test/services/crud.dart';
+import 'package:grapedoc_test/services/t_key.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
           .then((value) {
         disease = value.data()!['title'];
         imgUrl = value.data()!['imgUrl'];
-        print("fetched last scan data");
+        //print("fetched last scan data");
       }).catchError((e) {
         print(e);
       });
@@ -162,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       margin: const EdgeInsets.symmetric(
                                           horizontal: 15.0),
                                       child: Text(
-                                        'Last Scanned',
+                                        TKeys.scan.translate(context),
                                         style: TextStyle(
                                           fontSize: 22,
                                           fontWeight: FontWeight.w600,
@@ -268,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       Icon(Icons.camera_alt_rounded,color: Colors.black,),
-                      Text("Scan", style: TextStyle(color: Colors.black),)
+                      Text(TKeys.Scantest.translate(context), style: TextStyle(color: Colors.black),)
                     ],
                   ),
                 ),
@@ -299,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       Icon(Icons.chat_rounded,color: Colors.black,),
-                      Text("Chat", style: TextStyle(color: Colors.black),)
+                      Text(TKeys.chat.translate(context), style: TextStyle(color: Colors.black),)
                     ],
                   ),
                 ),
@@ -330,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       Icon(Icons.web,color: Colors.black,),
-                      Text("Blog", style: TextStyle(color: Colors.black),)
+                      Text(TKeys.blog.translate(context), style: TextStyle(color: Colors.black),)
                     ],
                   ),
                 ),
@@ -373,7 +374,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     children: [
                       Text(
-                        "Interested in learning\nmore about grapes?",
+                        TKeys.graphed.translate(context),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,
@@ -385,7 +386,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 25.0,
                       ),
                       Text(
-                        "Click Here...",
+                        TKeys.click.translate(context),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24.0,
@@ -489,7 +490,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 Text(
-                  "Enjoying GrapeDoc?",
+                  TKeys.enjoy.translate(context),
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.w700,
@@ -500,7 +501,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   alignment: Alignment.center,
                   child: Text(
                     //"Your review helps spread the word and grow the GrapeDoc community!",
-                    "We work super hard to make GrapeDoc better for you and We'd love to hear what you have to say about this app. Please take a moment to Rate us.",
+                    TKeys.rate.translate(context),
                     style: TextStyle(
                       fontSize: 14.0,
                     ),
@@ -530,7 +531,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   child: Text(
-                    "Rate us",
+                    TKeys.rateus.translate(context),
                     style: TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.w700,

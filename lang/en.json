@@ -1,0 +1,34 @@
+{
+  "settings": "Settings",
+  "account": "Account",
+  "notifications": "Notifications",
+  "language": "Language",
+  "privacy": "Privacy and Security",
+  "newforu": "New for you",
+  "accountability": "Account activity",
+  "opportunity": "Opportunity",
+
+  "develop": "Developed by",
+  "contact": "Contact Us",
+  "about": "GrapeDoc is a mobile application that assists farmers in detecting grape leaf diseases and increasing their revenues through improved insights. Users can get answers to their questions quickly and easily. GrapeDoc ensures consistency and brings everything closer together.",
+  "policy": "Privacy Policy",
+  "us": "About Us",
+
+  "scan": "Last Scanned",
+  "Scantest": "Scan",
+  "chat": "Chat",
+  "blog": "Blog",
+  "graphed": "Interested in learning\nmore about grapes?",
+  "click": "Click Here...",
+  "enjoy": "Enjoying GrapeDoc?",
+  "rate": "We work super hard to make GrapeDoc better for you and We'd love to hear what you have to say about this app. Please take a moment to Rate us.",
+  "rateus": "Rate us.",
+
+  "homenav": "Home",
+  "settingsnav": "Settings",
+  "aboutnav": "About us",
+  "privacynav": "Privacy Policy",
+  "ratenav": "Rate us.",
+
+  "message": "Send a message"
+}

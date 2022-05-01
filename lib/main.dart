@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:grapedoc_test/screens/LoginScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:grapedoc_test/services/localiziation.dart';
 import 'package:provider/provider.dart';
 import 'providers/SignInProvider.dart';
 import 'package:camera/camera.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
             fontFamily: 'OpenSans',
             primarySwatch: Colors.purple,
           ),
+          localeResolutionCallback: LocalizationService.localeResolutionCallBack,
+          supportedLocales: LocalizationService.supportedLocales,
+          localizationsDelegates: LocalizationService.localizationsDelegate,
           home: const LoginScreen(),
           debugShowCheckedModeBanner: false,
         ));

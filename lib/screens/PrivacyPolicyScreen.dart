@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:grapedoc_test/services/t_key.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Privacy Policy"),
+          title: Text(TKeys.policy.translate(context)),
         centerTitle: true,
         backgroundColor: Colors.blue,
         actions:[

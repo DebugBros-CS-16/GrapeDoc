@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
+import 'package:grapedoc_test/services/t_key.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
 import 'package:dialogflow_grpc/dialogflow_grpc.dart';
@@ -272,7 +273,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: TextField(
                       controller: _textController,
                       onSubmitted: handleSubmitted,
-                      decoration: const InputDecoration.collapsed(hintText: "Send a message"),
+                      decoration:  InputDecoration.collapsed(hintText: TKeys.message.translate(context)),
                     ),
                   ),
                   Container(
