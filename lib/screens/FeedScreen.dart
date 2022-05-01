@@ -13,7 +13,7 @@ class FeedScreen extends StatefulWidget {
 }
 
 class _FeedScreenState extends State<FeedScreen> {
-  static const String feedUrl = 'https://rss.app/feeds/XaP2mSJIvjtWyDIa.xml';
+  static const String feedUrl = 'https://rss.app/feeds/MWhhI8WsQFuJe3wP.xml';
   late RssFeed _feed;
   late GlobalKey<RefreshIndicatorState> _refreshKey;
   bool _isLoading = false;
