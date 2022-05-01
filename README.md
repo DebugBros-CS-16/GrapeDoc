@@ -61,8 +61,8 @@ The application includes a news feed that users can access directly from their h
 
 ## Developed by
 Team DebugBros <br>
-IIT - CS - 16 <br>
+CS - 16 <br>
 Contact us @grapedocdev@gmail.com
 
 Copyright ©2021-2022 Team Debugbros Development All Rights Reserved. <br>
-[Disclaimer](https://www.termsfeed.com/live/79c92026-11bd-4dc5-889c-5fec2f3e01a2/) | [Privacy Policy](https://www.freeprivacypolicy.com/live/4c5b69de-8587-4bc9-a3be-b0de7bd515aa)
+[Disclaimer](https://www.freeprivacypolicy.com/live/f7fbbfae-8f70-4fa3-a34d-035676d11eb7/) | [Privacy Policy](https://www.freeprivacypolicy.com/live/4c5b69de-8587-4bc9-a3be-b0de7bd515aa/) | [Terms & Conditions](https://www.freeprivacypolicy.com/live/6dbb1400-d670-45fb-85a6-3282dd8a6d18/)
