@@ -198,7 +198,9 @@ class _SettingScreenState extends State<SettingScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children:[
                     Text(op1),
+                    SizedBox(height: 10.0,),
                     Text(op2),
+                    SizedBox(height: 10.0,),
                     Text(op3),
                   ],
                 ),
