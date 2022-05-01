@@ -1,6 +1,7 @@
 # GrapeDoc
 <p align="center"> 
-<img src="https://user-images.githubusercontent.com/85722491/165746367-82d9144a-a98c-41cc-a269-def992e7371d.png" with="600" height="400" /></p>
+<img src="https://user-images.githubusercontent.com/92331808/166156544-893d534e-ad40-4ecb-a13a-e45c078bced6.png" with="600" height="400"
+></p>
 A mobile application that assists farmers in detecting grape leaf diseases and increasing their revenues through improved insights.
 
 
@@ -54,6 +55,14 @@ The GrapeDoc application has a blog post option that allows users to easily subm
 
 ### Never Miss a Thing
 The application includes a news feed that users can access directly from their home screen. This feed is up to date, and the user can visit the relevant website to learn more about the subject. This aids users in gaining information about the grape industry as well as alternate methods of grape production.
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/92331808/166157477-6c4062a6-5d8a-4aa7-9ff3-1df7db59ad42.png" with="600" height="400" />
+</p>
 
+## Developed by
+Team DebugBros <br>
+IIT - CS - 16 <br>
+Contact us @grapedocdev@gmail.com
 
-
+Copyright ©2021-2022 Team Debugbros Development All Rights Reserved. <br>
+[Disclaimer](https://www.termsfeed.com/live/79c92026-11bd-4dc5-889c-5fec2f3e01a2/) | [Privacy Policy](https://www.freeprivacypolicy.com/live/4c5b69de-8587-4bc9-a3be-b0de7bd515aa)
